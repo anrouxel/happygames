@@ -1,0 +1,92 @@
+@inject NavigationManager NavigationManager
+
+<div class="d-table position-fixed h-100 w-100">
+    <div class="d-table-row">
+        <div class="d-table-cell align-middle">
+            <RadzenCard class="col-lg-5 position-relative" style="margin-left: auto; margin-right: auto;">
+                <h2 class="mb-4">Inscription</h2>
+                <RadzenFieldset Text="Civilité" style="margin-bottom: 1rem">
+                    <div style="margin-bottom: 1rem" class="row">
+                        <div class="col-md-3" style="align-self: center;">
+                            <RadzenLabel Component="userName" style="width: 100%" Text="Nom" />
+                        </div>
+                        <div class="col-md-9">
+                            <RadzenTextBox style="display: block; width: 100%" Name="UserName" />
+                            <RadzenRequiredValidator Component="UserName" style="position: absolute"
+                                Text="Nom requis" />
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 1rem" class="row">
+                        <div class="col-md-3" style="align-self: center;">
+                            <RadzenLabel Component="userFirstName" style="width: 100%" Text="Prénom" />
+                        </div>
+                        <div class="col-md-9">
+                            <RadzenTextBox style="display: block; width: 100%" Name="UserFirstName" />
+                            <RadzenRequiredValidator Component="UserFirstName" style="position: absolute"
+                                Text="Prénom requis" />
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 1rem" class="row">
+                        <div class="col-md-3" style="align-self: center;">
+                            <RadzenLabel Component="userDate" style="width: 100%" Text="Date de naissance" />
+                        </div>
+                        <div class="col-md-9">
+                            <RadzenDatePicker @bind-Value=@date DateFormat="d" style="display: block; width: 100%"
+                                Name="UserDate" />
+                            <RadzenRequiredValidator Component="UserDate" style="position: absolute"
+                                Text="Date de naissance requise" />
+                        </div>
+                    </div>
+                </RadzenFieldset>
+                <RadzenFieldset Text="Contact" style="margin-bottom: 1rem">
+                    <div style="margin-bottom: 1rem" class="row">
+                        <div class="col-md-3" style="align-self: center;">
+                            <RadzenLabel Component="userEmail" style="width: 100%" Text="Adresse mail">
+                            </RadzenLabel>
+                        </div>
+                        <div class="col-md-9">
+                            <RadzenTextBox style="display: block; width: 100%" Name="UserEmail" />
+                            <RadzenRequiredValidator Component="UserEmail" style="position: absolute"
+                                Text="Adresse mail requise" />
+                            <RadzenEmailValidator Component="UserEmail" Text="Adresse mail non valide"
+                                Style="position: absolute" />
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 1rem" class="row">
+                        <div class="col-md-3" style="align-self: center;">
+                            <RadzenLabel Component="userEmail" style="width: 100%" Text="Confirmation adresse mail">
+                            </RadzenLabel>
+                        </div>
+                        <div class="col-md-9">
+                            <RadzenTextBox style="display: block; width: 100%" Name="UserEmail" />
+                            <RadzenRequiredValidator Component="UserEmail" style="position: absolute"
+                                Text="Adresse mail requise" />
+                            <RadzenEmailValidator Component="UserEmail" Text="Adresse mail non valide"
+                                Style="position: absolute" />
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 1rem" class="row">
+                        <div class="col-md-3" style="align-self: center;">
+                            <RadzenLabel Component="userPhone" style="width: 100%" Text="Téléphone">
+                            </RadzenLabel>
+                        </div>
+                        <div class="col-md-9">
+                            <RadzenMask Mask="** ** ** ** **" CharacterPattern="[0-9]" Placeholder="00 00 00 00 00" Name="UserPhone" style="display: block; width: 100%" />
+                            <RadzenRequiredValidator Component="UserPhone" style="position: absolute"
+                                Text="Adresse mail requise" />
+                        </div>
+                    </div>
+                </RadzenFieldset>
+            </RadzenCard>
+        </div>
+    </div>
+</div>
+
+@code {
+    DateTime? date = DateTime.Now;
+
+    void OnCancel()
+    {
+        NavigationManager.NavigateTo("");
+    }
+}
