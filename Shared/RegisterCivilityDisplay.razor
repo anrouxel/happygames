@@ -1,0 +1,45 @@
+@using happygames.Data
+
+<RadzenFieldset Style=@Style>
+    <div style="margin-bottom: 1rem" class="row">
+        <div class="col-md-3" style="align-self: center;">
+            <RadzenLabel Component="userName" style="width: 100%" Text="Nom" />
+        </div>
+        <div class="col-md-9">
+            <RadzenTextBox @bind-Value="registerModel!.UserName" style="display: block; width: 100%" Name="UserName"
+                Disabled=@Disabled />
+            <RadzenRequiredValidator Component="UserName" style="position: absolute" Text="Nom requis" />
+        </div>
+    </div>
+    <div style="margin-bottom: 1rem" class="row">
+        <div class="col-md-3" style="align-self: center;">
+            <RadzenLabel Component="userFirstName" style="width: 100%" Text="Prénom" />
+        </div>
+        <div class="col-md-9">
+            <RadzenTextBox @bind-Value="registerModel!.UserFirstName" style="display: block; width: 100%"
+                Name="UserFirstName" Disabled=@Disabled />
+            <RadzenRequiredValidator Component="UserFirstName" style="position: absolute" Text="Prénom requis" />
+        </div>
+    </div>
+    <div style="margin-bottom: 1rem" class="row">
+        <div class="col-md-3" style="align-self: center;">
+            <RadzenLabel Component="userDate" style="width: 100%" Text="Date de naissance" />
+        </div>
+        <div class="col-md-9">
+            <RadzenDatePicker @bind-Value="registerModel!.UserDate" DateFormat="d" style="display: block; width: 100%"
+                Name="UserDate" Disabled=@Disabled />
+            <RadzenRequiredValidator Component="UserDate" style="position: absolute" Text="Date de naissance requise" />
+        </div>
+    </div>
+</RadzenFieldset>
+
+@code {
+    [Parameter]
+    public bool Disabled { get; set; }
+
+    [Parameter, EditorRequired]
+    public RegisterModel? registerModel { get; set; }
+
+    [Parameter]
+    public string? Style { get; set; }
+}
