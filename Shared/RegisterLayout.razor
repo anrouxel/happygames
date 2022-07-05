@@ -5,7 +5,7 @@
         <div class="d-table-cell align-middle">
             <RadzenCard class="col-lg-5 position-relative" style="margin-left: auto; margin-right: auto;">
                 <h2 class="mb-4">Inscription</h2>
-                <RadzenFieldset Text="Civilité" style="margin-bottom: 1rem">
+                <RadzenFieldset Text="Civilité" style="margin-bottom: 1rem;">
                     <div style="margin-bottom: 1rem" class="row">
                         <div class="col-md-3" style="align-self: center;">
                             <RadzenLabel Component="userName" style="width: 100%" Text="Nom" />
@@ -38,7 +38,7 @@
                         </div>
                     </div>
                 </RadzenFieldset>
-                <RadzenFieldset Text="Contact" style="margin-bottom: 1rem">
+                <RadzenFieldset Text="Contact" style="margin-bottom: 1rem;">
                     <div style="margin-bottom: 1rem" class="row">
                         <div class="col-md-3" style="align-self: center;">
                             <RadzenLabel Component="userEmail" style="width: 100%" Text="Adresse mail">
@@ -71,11 +71,14 @@
                             </RadzenLabel>
                         </div>
                         <div class="col-md-9">
-                            <RadzenMask Mask="** ** ** ** **" CharacterPattern="[0-9]" Placeholder="00 00 00 00 00" Name="UserPhone" style="display: block; width: 100%" />
+                            <RadzenMask Mask="** ** ** ** **" CharacterPattern="[0-9]" MaxLength=14 Name="UserPhone"
+                                style="display: block; width: 100%" />
                             <RadzenRequiredValidator Component="UserPhone" style="position: absolute"
                                 Text="Adresse mail requise" />
                         </div>
                     </div>
+                </RadzenFieldset>
+                <RadzenFieldset Text="Mot de passe" style="margin-bottom: 1rem;">
                 </RadzenFieldset>
             </RadzenCard>
         </div>
