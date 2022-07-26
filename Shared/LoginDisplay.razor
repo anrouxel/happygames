@@ -17,10 +17,10 @@
 
 @code {
     void OnLogin() {
-        NavigationManager.NavigateTo("login");
+        NavigationManager.NavigateTo("Identity/Account/Login", true);
     }
 
     void OnRegister() {
-        NavigationManager.NavigateTo("register");
+        NavigationManager.NavigateTo("Identity/Account/Register", true);
     }
 }
