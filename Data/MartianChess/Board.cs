@@ -2,13 +2,45 @@ namespace happygames.Data
 {
     class Board
     {
-        private int horizontalSize = 4;
-        private int verticalSize = 8;
-        private Box[,]? boxes;
+        private int horizontalSize;
+        private int verticalSize;
+        private Box[,] boxes;
+
+        public Board()
+        {
+            this.horizontalSize = 4;
+            this.verticalSize = 8;
+            this.boxes = new Box[verticalSize, horizontalSize];
+            initialize();
+        }
 
         public void initialize()
         {
-            boxes = new Box[verticalSize, horizontalSize];
+            for (int y = 0; y < verticalSize; y++)
+            {
+                for (int x = 0; x < horizontalSize; x++)
+                {
+                    boxes[y, x] = new Box();
+                }
+            }
+            boxes[0, 0].setPawn(new BigPawn());
+            boxes[1, 0].setPawn(new BigPawn());
+            boxes[0, 1].setPawn(new BigPawn());
+            boxes[1, 1].setPawn(new MediumPawn());
+            boxes[0, 2].setPawn(new MediumPawn());
+            boxes[2, 0].setPawn(new MediumPawn());
+            boxes[2, 2].setPawn(new SmallPawn());
+            boxes[1, 2].setPawn(new SmallPawn());
+            boxes[2, 1].setPawn(new SmallPawn());
+            boxes[7, 3].setPawn(new BigPawn());
+            boxes[6, 3].setPawn(new BigPawn());
+            boxes[7, 2].setPawn(new BigPawn());
+            boxes[6, 2].setPawn(new MediumPawn());
+            boxes[7, 1].setPawn(new MediumPawn());
+            boxes[5, 3].setPawn(new MediumPawn());
+            boxes[5, 2].setPawn(new SmallPawn());
+            boxes[6, 1].setPawn(new SmallPawn());
+            boxes[5, 1].setPawn(new SmallPawn());
         }
 
         public int getHorizontalSize()
@@ -23,7 +55,36 @@ namespace happygames.Data
 
         public Box[,] getBoxes()
         {
-            return boxes!;
+            return boxes;
+        }
+
+        public override string ToString()
+        {
+            string content = "";
+            for (int y = 0; y < verticalSize; y++)
+            {
+                for (int x = 0; x < horizontalSize; x++)
+                {
+                    content += "|";
+                    switch (boxes[y,x].getPawn())
+                    {
+                        case SmallPawn smallPawn:
+                            content += "P";
+                            break;
+                        case MediumPawn mediumPawn:
+                            content += "M";
+                            break;
+                        case BigPawn bigPawn:
+                            content += "G";
+                            break;
+                        default:
+                            content += " ";
+                            break;
+                    }
+                }
+                content += "|\n";
+            }
+            return content;
         }
     }
 }

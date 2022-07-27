@@ -1,0 +1,69 @@
+@page "/martianchess"
+@using happygames.Data
+
+<PageTitle>Echec Martien</PageTitle>
+
+<table class="table">
+    <tbody>
+        @for (int y = 0; y < game!.getVerticalSize(); y++)
+        {
+            <tr>
+                @for (int x = 0; x < game!.getHorizontalSize(); x++)
+                {
+                    string pawn;
+                    Coordinate coordinate = new Coordinate(x, y);
+                    switch (game!.getBoard()[y, x].getPawn())
+                    {
+                        case SmallPawn smallPawn:
+                            pawn = "P";
+                            break;
+                        case MediumPawn mediumPawn:
+                            pawn = "M";
+                            break;
+                        case BigPawn bigPawn:
+                            pawn = "G";
+                            break;
+                        default:
+                            pawn = "";
+                            break;
+                    }
+                    <td>
+                        <RadzenButton Style="height: 50px; width: 50px;" Text=@pawn Click="() => displace(coordinate)" />
+                    </td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code {
+    private Game? game;
+    private bool isDisplace;
+
+    protected override void OnInitialized()
+    {
+        game = new Game();
+        game.initializeGame(new Player("1"), new Player("2"), 6);
+        isDisplace = false;
+        Console.Write(game.getBoardString());
+    }
+
+    private void displace(Coordinate coordinate)
+    {
+        if (isDisplace == true)
+        {
+            game!.setCoordDestinationDisplacement(coordinate);
+            game.displace(game.getCoordOriginDisplacement().getX(), game.getCoordOriginDisplacement().getY(),
+            game.getCoordDestinationDisplacement().getX(), game.getCoordDestinationDisplacement().getY(), game.getCurrentPlayer());
+            isDisplace = false;
+            game!.changePlayer();
+            Console.Write(game.getBoardString());
+            Console.WriteLine(game.getCurrentPlayer()!.getUsername());
+        }
+        else
+        {
+            game!.setCoordOriginDisplacement(coordinate);
+            isDisplace = true;
+        }
+    }
+}

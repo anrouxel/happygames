@@ -23,7 +23,7 @@ namespace happygames.Data
 
         public bool isDiagonal()
         {
-            return isHorizontal() && isVertical() && Math.Abs(origin.getX() - destination.getX()) == Math.Abs(origin.getY() - destination.getY());
+            return Math.Abs(origin.getX() - destination.getX()) == Math.Abs(origin.getY() - destination.getY());
         }
 
         public int length()
@@ -40,40 +40,45 @@ namespace happygames.Data
 
         public bool isHorizontalPositive()
         {
-            return isHorizontal() && length() > 0;
+            return isHorizontal() && origin.getX() < destination.getX();
         }
 
         public bool isVerticalPositive()
         {
-            return isVertical() && length() > 0;
+            return isVertical() && origin.getY() < destination.getY();
         }
 
         public bool isDiagonalPositiveXPositiveY()
         {
-            return isDiagonal() && isHorizontalPositive() && isVerticalPositive();
+            return isDiagonal() && origin.getX() < destination.getX() && origin.getY() < destination.getY();
         }
 
         public bool isDiagonalPositiveXNegativeY()
         {
-            return isDiagonal() && isHorizontalPositive() && !isVerticalPositive();
+            return isDiagonal() && origin.getX() < destination.getX() && origin.getY() > destination.getY();
         }
 
         public bool isDiagonalNegativeXPositiveY()
         {
-            return isDiagonal() && !isHorizontalPositive() && isVerticalPositive();
+            return isDiagonal() && origin.getX() > destination.getX() && origin.getY() < destination.getY();
         }
 
         public bool isDiagonalNegativeXNegativeY()
         {
-            return isDiagonal() && !isHorizontalPositive() && !isVerticalPositive();
+            return isDiagonal() && origin.getX() > destination.getX() && origin.getY() > destination.getY();
         }
 
         public List<Coordinate> getHorizontalPath()
         {
             List<Coordinate> coordinates = new List<Coordinate>();
-            for (int i = 0; i < length(); i++)
+            int x = 1;
+            if (!isHorizontalPositive())
             {
-                coordinates.Add(new Coordinate(origin.getX() + i, origin.getY()));
+                x = -x;
+            }
+            for (int i = 0; i <= length(); i++)
+            {
+                coordinates.Add(new Coordinate(origin.getX() + i * x, origin.getY()));
             }
             return coordinates;
         }
@@ -81,9 +86,14 @@ namespace happygames.Data
         public List<Coordinate> getVerticalPath()
         {
             List<Coordinate> coordinates = new List<Coordinate>();
-            for (int i = 0; i < length(); i++)
+            int y = 1;
+            if (!isVerticalPositive())
             {
-                coordinates.Add(new Coordinate(origin.getX(), origin.getY() + i));
+                y = -y;
+            }
+            for (int i = 0; i <= length(); i++)
+            {
+                coordinates.Add(new Coordinate(origin.getX(), origin.getY() + i * y));
             }
             return coordinates;
         }
@@ -91,9 +101,24 @@ namespace happygames.Data
         public List<Coordinate> getDiagonalPath()
         {
             List<Coordinate> coordinates = new List<Coordinate>();
-            for (int i = 0; i < length(); i++)
+            int x = 1;
+            int y = 1;
+            if (isDiagonalPositiveXNegativeY())
             {
-                coordinates.Add(new Coordinate(origin.getX() + i, origin.getY() + i));
+                y = -y;
+            }
+            else if (isDiagonalNegativeXPositiveY())
+            {
+                x = -x;
+            }
+            else if (isDiagonalNegativeXNegativeY())
+            {
+                x = -x;
+                y = -y;
+            }
+            for (int i = 0; i <= length(); i++)
+            {
+                coordinates.Add(new Coordinate(origin.getX() + i * x, origin.getY() + i * y));
             }
             return coordinates;
         }
