@@ -83,18 +83,13 @@ namespace happygames.Data
 
         public bool possibleDisplacement(int coordOriginX, int coordOriginY, int coordDestinationX, int coordDestinationY, Player? player)
         {
-            Console.WriteLine("0");
             if (coordOriginX >= 0 && coordOriginX < board.getHorizontalSize() && coordDestinationX >= 0 && coordDestinationX < board.getHorizontalSize() && coordOriginY >= 0 && coordOriginY < board.getVerticalSize() && coordDestinationY >= 0 && coordDestinationY < board.getVerticalSize())
             {
-                Console.WriteLine("1");
                 if (player == board.getBoxes()[coordOriginY, coordOriginX].getPlayer() && board.getBoxes()[coordOriginY, coordOriginX].getPawn() is Pawn)
                 {
-                    Console.WriteLine("2");
                     try
                     {
-                        Console.WriteLine("3");
                         List<Coordinate> displacement = board.getBoxes()[coordOriginY, coordOriginX].getPawn()!.getDisplacement(new Displacement(new Coordinate(coordOriginX, coordOriginY), new Coordinate(coordDestinationX, coordDestinationY)));
-                        Console.WriteLine("4");
                         for (int i = 1; i < displacement.Count() - 1; i++)
                         {
                             if (board.getBoxes()[displacement[i].getY(), displacement[i].getX()].getPawn() is Pawn)
@@ -102,14 +97,10 @@ namespace happygames.Data
                                 return false;
                             }
                         }
-                        Console.WriteLine("5");
-                        Console.WriteLine(board.getBoxes()[displacement.Last().getY(), displacement.Last().getX()].getPlayer() == player);
-                        Console.WriteLine(board.getBoxes()[displacement.Last().getY(), displacement.Last().getX()].getPawn() is Pawn);
                         if (board.getBoxes()[displacement.Last().getY(), displacement.Last().getX()].getPlayer() == player && board.getBoxes()[displacement.Last().getY(), displacement.Last().getX()].getPawn() is Pawn)
                         {
                             return false;
                         }
-                        Console.WriteLine("6");
                         return true;
                     }
                     catch (DisplacementException) { }

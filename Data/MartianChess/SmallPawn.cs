@@ -9,12 +9,8 @@ namespace happygames.Data
 
         public override List<Coordinate> getDisplacement(Displacement displacement)
         {
-            Console.WriteLine("A");
-            Console.WriteLine(displacement.isDiagonal());
-            Console.WriteLine(displacement.length());
             if (displacement.isDiagonal() && displacement.length() == 1)
             {
-                Console.WriteLine("B");
                 return displacement.getDiagonalPath();
             }
 

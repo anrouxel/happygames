@@ -45,7 +45,6 @@
         game = new Game();
         game.initializeGame(new Player("1"), new Player("2"), 6);
         isDisplace = false;
-        Console.Write(game.getBoardString());
     }
 
     private void displace(Coordinate coordinate)
@@ -57,8 +56,6 @@
             game.getCoordDestinationDisplacement().getX(), game.getCoordDestinationDisplacement().getY(), game.getCurrentPlayer());
             isDisplace = false;
             game!.changePlayer();
-            Console.Write(game.getBoardString());
-            Console.WriteLine(game.getCurrentPlayer()!.getUsername());
         }
         else
         {
