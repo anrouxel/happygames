@@ -3,38 +3,36 @@
 
 <PageTitle>Echec Martien</PageTitle>
 
-<table class="table">
-    <tbody>
-        @for (int y = 0; y < game!.getVerticalSize(); y++)
-        {
-            <tr>
-                @for (int x = 0; x < game!.getHorizontalSize(); x++)
+<div class="container">
+    @for (int y = 0; y < game!.getVerticalSize(); y++)
+    {
+        <div class="row">
+            @for (int x = 0; x < game!.getHorizontalSize(); x++)
+            {
+                string pawn;
+                Coordinate coordinate = new Coordinate(x, y);
+                switch (game!.getBoard()[y, x].getPawn())
                 {
-                    string pawn;
-                    Coordinate coordinate = new Coordinate(x, y);
-                    switch (game!.getBoard()[y, x].getPawn())
-                    {
-                        case SmallPawn smallPawn:
-                            pawn = "P";
-                            break;
-                        case MediumPawn mediumPawn:
-                            pawn = "M";
-                            break;
-                        case BigPawn bigPawn:
-                            pawn = "G";
-                            break;
-                        default:
-                            pawn = "";
-                            break;
-                    }
-                    <td>
-                        <RadzenButton Style="height: 50px; width: 50px;" Text=@pawn Click="() => displace(coordinate)" />
-                    </td>
+                    case SmallPawn smallPawn:
+                        pawn = "P";
+                        break;
+                    case MediumPawn mediumPawn:
+                        pawn = "M";
+                        break;
+                    case BigPawn bigPawn:
+                        pawn = "G";
+                        break;
+                    default:
+                        pawn = "";
+                        break;
                 }
-            </tr>
-        }
-    </tbody>
-</table>
+                <div class="col">
+                    <RadzenButton Style="height: 50px; width: 50px;" Text=@pawn Click="() => displace(coordinate)" />
+                </div>
+            }
+        </div>
+    }
+</div>
 
 @code {
     private Game? game;
