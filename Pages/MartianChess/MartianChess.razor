@@ -1,5 +1,6 @@
 @page "/martianchess"
 @using happygames.Data
+@inject NotificationService NotificationService
 
 <PageTitle>Echec Martien</PageTitle>
 
@@ -49,16 +50,35 @@
     {
         if (isDisplace == true)
         {
-            game!.setCoordDestinationDisplacement(coordinate);
-            game.displace(game.getCoordOriginDisplacement().getX(), game.getCoordOriginDisplacement().getY(),
-            game.getCoordDestinationDisplacement().getX(), game.getCoordDestinationDisplacement().getY(), game.getCurrentPlayer());
+            try
+            {
+                game!.setCoordDestinationDisplacement(coordinate);
+                game.displace(game.getCoordOriginDisplacement().getX(), game.getCoordOriginDisplacement().getY(),
+                game.getCoordDestinationDisplacement().getX(), game.getCoordDestinationDisplacement().getY(), game.getCurrentPlayer());
+                game!.changePlayer();
+            }
+            catch (DisplacementException e)
+            {
+                showError(game!.getCurrentPlayer()!.getUsername(), e.Message);
+            }
             isDisplace = false;
-            game!.changePlayer();
         }
         else
         {
             game!.setCoordOriginDisplacement(coordinate);
             isDisplace = true;
         }
+    }
+
+    private void showError(string username, string message)
+    {
+        NotificationMessage notificationMessage = new NotificationMessage
+        {
+            Severity = NotificationSeverity.Error,
+            Summary = username,
+            Detail = message,
+            Duration = 4000
+        };
+        NotificationService.Notify(notificationMessage);
     }
 }

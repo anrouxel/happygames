@@ -55,8 +55,8 @@ namespace happygames.Data
             {
                 for (int x = 0; x < board.getHorizontalSize(); x++)
                 {
-                    board.getBoxes()[y,x].setPlayer(players[0]!);
-                    board.getBoxes()[board.getVerticalSize() - 1 - y,x].setPlayer(players[1]!);
+                    board.getBoxes()[y, x].setPlayer(players[0]!);
+                    board.getBoxes()[board.getVerticalSize() - 1 - y, x].setPlayer(players[1]!);
                 }
             }
         }
@@ -87,9 +87,10 @@ namespace happygames.Data
             {
                 if (player == board.getBoxes()[coordOriginY, coordOriginX].getPlayer() && board.getBoxes()[coordOriginY, coordOriginX].getPawn() is Pawn)
                 {
+                    List<Coordinate>? displacement = null;
                     try
                     {
-                        List<Coordinate> displacement = board.getBoxes()[coordOriginY, coordOriginX].getPawn()!.getDisplacement(new Displacement(new Coordinate(coordOriginX, coordOriginY), new Coordinate(coordDestinationX, coordDestinationY)));
+                        displacement = board.getBoxes()[coordOriginY, coordOriginX].getPawn()!.getDisplacement(new Displacement(new Coordinate(coordOriginX, coordOriginY), new Coordinate(coordDestinationX, coordDestinationY)));
                         for (int i = 1; i < displacement.Count() - 1; i++)
                         {
                             if (board.getBoxes()[displacement[i].getY(), displacement[i].getX()].getPawn() is Pawn)
@@ -99,12 +100,16 @@ namespace happygames.Data
                         }
                         if (board.getBoxes()[displacement.Last().getY(), displacement.Last().getX()].getPlayer() == player && board.getBoxes()[displacement.Last().getY(), displacement.Last().getX()].getPawn() is Pawn)
                         {
-                            return false;
+                            throw new DisplacementException("Tu ne peux pas déplacer ce pion sur un de tes pions");
                         }
                         return true;
                     }
-                    catch (DisplacementException) { }
+                    catch (DisplacementException e)
+                    {
+                        throw new DisplacementException(e.Message);
+                    }
                 }
+                throw new DisplacementException("Ce ne sont pas tes cases ou tu as sélectioné une case vide pour le départ.");
             }
             throw new DisplacementException("Déplacement impossible x ou y sort du plateau");
         }
