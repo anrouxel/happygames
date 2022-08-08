@@ -1,6 +1,6 @@
 namespace happygames.Data.MartianChess
 {
-    class Box
+    public class Box
     {
         private Player? player;
         private Pawn? pawn;

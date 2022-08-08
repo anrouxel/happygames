@@ -1,6 +1,6 @@
 namespace happygames.Data.MartianChess
 {
-    class BigPawn : Pawn
+    public class BigPawn : Pawn
     {
         public override int getScore()
         {

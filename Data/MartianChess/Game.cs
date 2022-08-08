@@ -1,6 +1,6 @@
 namespace happygames.Data.MartianChess
 {
-    class Game : InterfaceGame
+    public class Game : InterfaceGame
     {
         private int nswg; // Number of shots without a grip
         private int mnswg; // Maximum number of shots without a grip

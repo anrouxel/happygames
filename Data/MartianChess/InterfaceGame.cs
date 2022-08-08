@@ -1,6 +1,6 @@
 namespace happygames.Data.MartianChess
 {
-    interface InterfaceGame
+    public interface InterfaceGame
     {
         public void initializeGame(Player player1, Player player2, int mnswg);
         public bool possibleDisplacement(int coordOriginX, int coordOriginY);

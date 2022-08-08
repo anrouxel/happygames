@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.SignalR;
+using happygames.Data.MartianChess;
 
 namespace happygames.Hubs
 {
@@ -15,6 +16,11 @@ namespace happygames.Hubs
         {
             Console.WriteLine($"{Context.ConnectionId} disconnected");
             await base.OnDisconnectedAsync(exception);
+        }
+
+        public async Task Broadcast(Board board)
+        {
+            await Clients.All.SendAsync("Broadcast", board);
         }
     }
 }

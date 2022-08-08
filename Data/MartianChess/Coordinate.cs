@@ -1,6 +1,6 @@
 namespace happygames.Data.MartianChess
 {
-    class Coordinate
+    public class Coordinate
     {
         private int x; // Coordinate x
         private int y; // Coordinate y

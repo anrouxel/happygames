@@ -1,6 +1,6 @@
 namespace happygames.Data.MartianChess
 {
-    class Board
+    public class Board
     {
         private int horizontalSize;
         private int verticalSize;

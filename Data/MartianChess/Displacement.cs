@@ -1,6 +1,6 @@
 namespace happygames.Data.MartianChess
 {
-    class Displacement
+    public class Displacement
     {
         private Coordinate origin;
         private Coordinate destination;

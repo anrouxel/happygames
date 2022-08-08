@@ -1,6 +1,6 @@
 namespace happygames.Data.MartianChess
 {
-    class Player
+    public class Player
     {
         private string username;
         private List<Pawn> capturedPawns;

@@ -1,6 +1,6 @@
 namespace happygames.Data.MartianChess
 {
-    class DisplacementException : Exception
+    public class DisplacementException : Exception
     {
         public DisplacementException() { }
         public DisplacementException(String message) : base(message) { }

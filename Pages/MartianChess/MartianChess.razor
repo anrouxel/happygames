@@ -4,57 +4,81 @@
 @inject NotificationService NotificationService
 @inject NavigationManager NavigationManager
 @using Microsoft.AspNetCore.SignalR.Client
+@implements IDisposable
 
 <PageTitle>Echec Martien</PageTitle>
 
-<div class="container">
-    @for (int y = 0; y < game!.getVerticalSize(); y++)
-    {
-        <div class="row">
-            @for (int x = 0; x < game!.getHorizontalSize(); x++)
-            {
-                string pawn;
-                Coordinate coordinate = new Coordinate(x, y);
-                switch (game!.getBoard()[y, x].getPawn())
+@if (isGame)
+{
+    <div class="container">
+        @for (int y = 0; y < game!.getVerticalSize(); y++)
+        {
+            <div class="row">
+                @for (int x = 0; x < game!.getHorizontalSize(); x++)
                 {
-                    case SmallPawn smallPawn:
-                        pawn = "P";
-                        break;
-                    case MediumPawn mediumPawn:
-                        pawn = "M";
-                        break;
-                    case BigPawn bigPawn:
-                        pawn = "G";
-                        break;
-                    default:
-                        pawn = "";
-                        break;
+                    string pawn;
+                    Coordinate coordinate = new Coordinate(x, y);
+                    switch (game!.getBoard()[y, x].getPawn())
+                    {
+                        case SmallPawn smallPawn:
+                            pawn = "P";
+                            break;
+                        case MediumPawn mediumPawn:
+                            pawn = "M";
+                            break;
+                        case BigPawn bigPawn:
+                            pawn = "G";
+                            break;
+                        default:
+                            pawn = "";
+                            break;
+                    }
+                    <div class="col">
+                        <RadzenButton Style="height: 50px; width: 100%;" Text=@pawn Click="() => displace(coordinate)" />
+                    </div>
                 }
-                <div class="col">
-                    <RadzenButton Style="height: 50px; width: 100%;" Text=@pawn Click="() => displace(coordinate)" />
-                </div>
-            }
-        </div>
-    }
-</div>
+            </div>
+        }
+    </div>
+}
 
 @code {
     private HubConnection? hubConnection;
     private string? hubUrl;
     private Game? game;
     private bool isDisplace;
+    private bool isGame;
 
-    protected override void OnInitialized()
+    protected override Task OnInitializedAsync()
     {
         game = new Game();
         game.initializeGame(new Player("1"), new Player("2"), 6);
         isDisplace = false;
 
-        string baseUrl = NavigationManager.BaseUri;
-        hubUrl = baseUrl.TrimEnd('/') + MartianChessHub.HubUrl;
-        hubConnection = new HubConnectionBuilder().WithUrl(hubUrl).Build();
-        hubConnection.StartAsync();
-        base.OnInitialized();
+        try
+        {
+            string baseUrl = NavigationManager.BaseUri;
+            hubUrl = baseUrl.TrimEnd('/') + MartianChessHub.HubUrl;
+            hubConnection = new HubConnectionBuilder().WithUrl(hubUrl).Build();
+            hubConnection.On<Board>("Broadcast", BroadcastMessage);
+            hubConnection.StartAsync();
+            isGame = true;
+        }
+        catch (Exception)
+        {
+            isGame = false;
+        }
+        return base.OnInitializedAsync();
+    }
+
+    public void Dispose()
+    {
+        hubConnection!.DisposeAsync();
+    }
+
+    private void BroadcastMessage(Board board)
+    {
+        Console.WriteLine("board");
     }
 
     private void displace(Coordinate coordinate)
