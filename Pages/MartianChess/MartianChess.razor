@@ -1,6 +1,9 @@
 @page "/martianchess"
-@using happygames.Data
+@using happygames.Data.MartianChess
+@using happygames.Hubs
 @inject NotificationService NotificationService
+@inject NavigationManager NavigationManager
+@using Microsoft.AspNetCore.SignalR.Client
 
 <PageTitle>Echec Martien</PageTitle>
 
@@ -36,6 +39,8 @@
 </div>
 
 @code {
+    private HubConnection? hubConnection;
+    private string? hubUrl;
     private Game? game;
     private bool isDisplace;
 
@@ -44,6 +49,12 @@
         game = new Game();
         game.initializeGame(new Player("1"), new Player("2"), 6);
         isDisplace = false;
+
+        string baseUrl = NavigationManager.BaseUri;
+        hubUrl = baseUrl.TrimEnd('/') + MartianChessHub.HubUrl;
+        hubConnection = new HubConnectionBuilder().WithUrl(hubUrl).Build();
+        hubConnection.StartAsync();
+        base.OnInitialized();
     }
 
     private void displace(Coordinate coordinate)

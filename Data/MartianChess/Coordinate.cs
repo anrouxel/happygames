@@ -1,4 +1,4 @@
-namespace happygames.Data
+namespace happygames.Data.MartianChess
 {
     class Coordinate
     {
