@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.SignalR;
 using happygames.Models.MartianChess;
 using happygames.Data.MartianChess;
 
+using System.Text.Json;
+
 namespace happygames.Hubs
 {
     public class MartianChessHub : Hub
@@ -47,6 +49,8 @@ namespace happygames.Hubs
             string guid = (Context.Items["group"] as string)!;
             Console.WriteLine(groups[guid].getBoard());
             BoardData boardData = groups[guid].getBoard().Clone();
+            string json = JsonSerializer.Serialize(boardData, new JsonSerializerOptions { WriteIndented = true });
+            Console.WriteLine(json);
             await Clients.Group(guid).SendAsync("OnBoard", boardData);
         }
 

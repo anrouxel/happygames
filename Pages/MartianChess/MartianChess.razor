@@ -18,7 +18,7 @@
                 {
                     string pawn;
                     CoordinateData coordinate = new CoordinateData(x, y);
-                    switch (board.boxes[y, x].pawn)
+                    switch (board.boxes[y][x].pawn)
                     {
                         case SmallPawnData smallPawn:
                             pawn = "P";
@@ -80,7 +80,7 @@
 
     private void OnBoardSignalR(BoardData board)
     {
-        this.board = board;
+        Console.WriteLine("ok");
         StateHasChanged();
     }
 
