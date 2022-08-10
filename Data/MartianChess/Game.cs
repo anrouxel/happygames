@@ -9,6 +9,7 @@ namespace happygames.Data.MartianChess
         private Player?[] players = new Player[2]; // List of players
         private Player? currentPlayer;
         private Board board = new Board();
+        private bool isDisplace;
 
         public Coordinate getCoordOriginDisplacement()
         {
@@ -35,21 +36,12 @@ namespace happygames.Data.MartianChess
             return currentPlayer;
         }
 
-        public void initializeGame(Player player1, Player player2, int mnswg)
+        public void initializeGame(int mnswg)
         {
             this.mnswg = mnswg;
             nswg = 0;
-            currentPlayer = null;
-            players = new Player[2];
             board = new Board();
             board.initialize();
-            initializePlayer(player1, player2);
-        }
-
-        private void initializePlayer(Player player1, Player player2)
-        {
-            players[0] = player1;
-            players[1] = player2;
             currentPlayer = players[0];
             for (int y = 0; y < board.getVerticalSize() / 2; y++)
             {
@@ -59,6 +51,21 @@ namespace happygames.Data.MartianChess
                     board.getBoxes()[board.getVerticalSize() - 1 - y, x].setPlayer(players[1]!);
                 }
             }
+        }
+
+        public void initializePlayer(Player player)
+        {
+            players[Array.IndexOf(players, null)] = player;
+        }
+
+        public void removePlayer(Player player)
+        {
+            players[Array.IndexOf(players, player)] = null;
+        }
+
+        public bool isPlayerCompleted()
+        {
+            return !players.Contains(null);
         }
 
         public bool possibleDisplacement(int coordOriginX, int coordOriginY)
@@ -83,40 +90,44 @@ namespace happygames.Data.MartianChess
 
         public bool possibleDisplacement(int coordOriginX, int coordOriginY, int coordDestinationX, int coordDestinationY, Player? player)
         {
-            if (coordOriginX >= 0 && coordOriginX < board.getHorizontalSize() && coordDestinationX >= 0 && coordDestinationX < board.getHorizontalSize() && coordOriginY >= 0 && coordOriginY < board.getVerticalSize() && coordDestinationY >= 0 && coordDestinationY < board.getVerticalSize())
+            if (player!.getUsername() == currentPlayer!.getUsername())
             {
-                if (player == board.getBoxes()[coordOriginY, coordOriginX].getPlayer() && board.getBoxes()[coordOriginY, coordOriginX].getPawn() is Pawn)
+                if (coordOriginX >= 0 && coordOriginX < board.getHorizontalSize() && coordDestinationX >= 0 && coordDestinationX < board.getHorizontalSize() && coordOriginY >= 0 && coordOriginY < board.getVerticalSize() && coordDestinationY >= 0 && coordDestinationY < board.getVerticalSize())
                 {
-                    List<Coordinate>? displacement = null;
-                    try
+                    if (player == board.getBoxes()[coordOriginY, coordOriginX].getPlayer() && board.getBoxes()[coordOriginY, coordOriginX].getPawn() is Pawn)
                     {
-                        displacement = board.getBoxes()[coordOriginY, coordOriginX].getPawn()!.getDisplacement(new Displacement(new Coordinate(coordOriginX, coordOriginY), new Coordinate(coordDestinationX, coordDestinationY)));
-                        for (int i = 1; i < displacement.Count() - 1; i++)
+                        List<Coordinate>? displacement = null;
+                        try
                         {
-                            if (board.getBoxes()[displacement[i].getY(), displacement[i].getX()].getPawn() is Pawn)
+                            displacement = board.getBoxes()[coordOriginY, coordOriginX].getPawn()!.getDisplacement(new Displacement(new Coordinate(coordOriginX, coordOriginY), new Coordinate(coordDestinationX, coordDestinationY)));
+                            for (int i = 1; i < displacement.Count() - 1; i++)
                             {
-                                return false;
+                                if (board.getBoxes()[displacement[i].getY(), displacement[i].getX()].getPawn() is Pawn)
+                                {
+                                    return false;
+                                }
                             }
+                            if (board.getBoxes()[displacement.Last().getY(), displacement.Last().getX()].getPlayer() == player && board.getBoxes()[displacement.Last().getY(), displacement.Last().getX()].getPawn() is Pawn)
+                            {
+                                throw new DisplacementException("Tu ne peux pas déplacer ce pion sur un de tes pions");
+                            }
+                            return true;
                         }
-                        if (board.getBoxes()[displacement.Last().getY(), displacement.Last().getX()].getPlayer() == player && board.getBoxes()[displacement.Last().getY(), displacement.Last().getX()].getPawn() is Pawn)
+                        catch (DisplacementException e)
                         {
-                            throw new DisplacementException("Tu ne peux pas déplacer ce pion sur un de tes pions");
+                            throw new DisplacementException(e.Message);
                         }
-                        return true;
                     }
-                    catch (DisplacementException e)
-                    {
-                        throw new DisplacementException(e.Message);
-                    }
+                    throw new DisplacementException("Ce ne sont pas tes cases ou tu as sélectioné une case vide pour le départ.");
                 }
-                throw new DisplacementException("Ce ne sont pas tes cases ou tu as sélectioné une case vide pour le départ.");
+                throw new DisplacementException("Déplacement impossible x ou y sort du plateau");
             }
-            throw new DisplacementException("Déplacement impossible x ou y sort du plateau");
+            throw new DisplacementException("Ce n'est pas à ton tour de jouer.");
         }
 
         public void displace(int coordOriginX, int coordOriginY, int coordDestinationX, int coordDestinationY, Player? player)
         {
-            if (possibleDisplacement(coordOriginX, coordOriginY, coordDestinationX, coordDestinationY, currentPlayer))
+            if (possibleDisplacement(coordOriginX, coordOriginY, coordDestinationX, coordDestinationY, player))
             {
                 if (board.getBoxes()[coordOriginY, coordOriginX].getPawn() == null)
                 {
@@ -173,9 +184,9 @@ namespace happygames.Data.MartianChess
             return false;
         }
 
-        public Box[,] getBoard()
+        public Board getBoard()
         {
-            return board.getBoxes();
+            return board;
         }
 
         public int getHorizontalSize()
@@ -191,6 +202,16 @@ namespace happygames.Data.MartianChess
         public string getBoardString()
         {
             return board.ToString();
+        }
+
+        public bool getIsDisplace()
+        {
+            return isDisplace;
+        }
+
+        public void setIsDisplace(bool isDisplace)
+        {
+            this.isDisplace = isDisplace;
         }
     }
 }
