@@ -1,3 +1,5 @@
+using happygames.Data.MartianChess;
+
 namespace happygames.Models.MartianChess
 {
     public class Coordinate
@@ -9,6 +11,11 @@ namespace happygames.Models.MartianChess
         {
             this.x = x;
             this.y = y;
+        }
+
+        public CoordinateData Clone()
+        {
+            return new CoordinateData(x, y);
         }
 
         public int getX()

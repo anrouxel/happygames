@@ -1,3 +1,5 @@
+using happygames.Data.MartianChess;
+
 namespace happygames.Models.MartianChess
 {
     public class MediumPawn : BigPawn
@@ -26,6 +28,11 @@ namespace happygames.Models.MartianChess
             }
 
             throw new DisplacementException("Déplacement impossible pour le moyen pion");
+        }
+
+        public override PawnData Clone()
+        {
+            return new MediumPawnData();;
         }
     }
 }

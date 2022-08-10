@@ -1,3 +1,5 @@
+using happygames.Data.MartianChess;
+
 namespace happygames.Models.MartianChess
 {
     public class Game : InterfaceGame
@@ -10,6 +12,16 @@ namespace happygames.Models.MartianChess
         private Player? currentPlayer;
         private Board board = new Board();
         private bool isDisplace;
+
+        public GameData Clone()
+        {
+            PlayerData?[] playersData = new PlayerData[2];
+            for (int i = 0; i < players.Count(); i++)
+            {
+                playersData[i] = players[i]!.Clone();
+            }
+            return new GameData(nswg, mnswg, originCoordinate!.Clone(), destinationCoordinate!.Clone(), playersData, currentPlayer!.Clone(), board.Clone(), isDisplace);
+        }
 
         public Coordinate getCoordOriginDisplacement()
         {

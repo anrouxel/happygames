@@ -1,3 +1,5 @@
+using happygames.Data.MartianChess;
+
 namespace happygames.Models.MartianChess
 {
     public class SmallPawn : Pawn
@@ -15,6 +17,11 @@ namespace happygames.Models.MartianChess
             }
 
             throw new DisplacementException("Déplacement impossible pour le petit pion");
+        }
+
+        public override PawnData Clone()
+        {
+            return new SmallPawnData();
         }
     }
 }

@@ -1,3 +1,5 @@
+using happygames.Data.MartianChess;
+
 namespace happygames.Models.MartianChess
 {
     public class Board
@@ -12,6 +14,22 @@ namespace happygames.Models.MartianChess
             this.verticalSize = 8;
             this.boxes = new Box[verticalSize, horizontalSize];
             initialize();
+        }
+
+        public BoardData Clone()
+        {
+            Console.WriteLine("board début");
+            BoxData[,] boxesData = new BoxData[verticalSize, horizontalSize];
+            for (int y = 0; y < verticalSize; y++)
+            {
+                for (int x = 0; x < horizontalSize; x++)
+                {
+                    Console.WriteLine($"===== {y}, {x}");
+                    boxesData[y, x] = boxes[y, x].Clone();
+                }
+            }
+            Console.WriteLine("board fin");
+            return new BoardData(boxesData, horizontalSize, verticalSize);
         }
 
         public void initialize()
@@ -66,7 +84,7 @@ namespace happygames.Models.MartianChess
                 for (int x = 0; x < horizontalSize; x++)
                 {
                     content += "|";
-                    switch (boxes[y,x].getPawn())
+                    switch (boxes[y, x].getPawn())
                     {
                         case SmallPawn smallPawn:
                             content += "P";

@@ -1,6 +1,7 @@
 using System.Collections.Concurrent;
 using Microsoft.AspNetCore.SignalR;
 using happygames.Models.MartianChess;
+using happygames.Data.MartianChess;
 
 namespace happygames.Hubs
 {
@@ -45,11 +46,13 @@ namespace happygames.Hubs
         {
             string guid = (Context.Items["group"] as string)!;
             Console.WriteLine(groups[guid].getBoard());
-            await Clients.Group(guid).SendAsync("OnBoard", groups[guid].getBoard());
+            BoardData boardData = groups[guid].getBoard().Clone();
+            await Clients.Group(guid).SendAsync("OnBoard", boardData);
         }
 
-        public async Task OnDisplace(Coordinate coordinate)
+        public async Task OnDisplace(CoordinateData coordinateData)
         {
+            Coordinate coordinate = new Coordinate(coordinateData.x, coordinateData.y);
             string guid = (Context.Items["group"] as string)!;
             if (groups[guid].getIsDisplace() == true)
             {

@@ -1,9 +1,26 @@
+using happygames.Data.MartianChess;
+
 namespace happygames.Models.MartianChess
 {
     public class Box
     {
         private Player? player;
         private Pawn? pawn;
+
+        public BoxData Clone()
+        {
+            PlayerData? playerData = null;
+            PawnData? pawnData = null;
+            if (player != null)
+            {
+                playerData = player.Clone();
+            }
+            if (pawn != null)
+            {
+                pawnData = pawn.Clone();
+            }
+            return new BoxData(playerData, pawnData);
+        }
 
         public bool isEmpty()
         {

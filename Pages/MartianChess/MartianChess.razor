@@ -1,5 +1,5 @@
 @page "/martianchess"
-@using happygames.Models.MartianChess
+@using happygames.Data.MartianChess
 @using happygames.Hubs
 @inject NotificationService NotificationService
 @inject NavigationManager NavigationManager
@@ -11,22 +11,22 @@
 @if (isGame && board != null)
 {
     <div class="container">
-        @for (int y = 0; y < board.getVerticalSize(); y++)
+        @for (int y = 0; y < board.verticalSize; y++)
         {
             <div class="row">
-                @for (int x = 0; x < board.getHorizontalSize(); x++)
+                @for (int x = 0; x < board.horizontalSize; x++)
                 {
                     string pawn;
-                    Coordinate coordinate = new Coordinate(x, y);
-                    switch (board.getBoxes()[y, x].getPawn())
+                    CoordinateData coordinate = new CoordinateData(x, y);
+                    switch (board.boxes[y, x].pawn)
                     {
-                        case SmallPawn smallPawn:
+                        case SmallPawnData smallPawn:
                             pawn = "P";
                             break;
-                        case MediumPawn mediumPawn:
+                        case MediumPawnData mediumPawn:
                             pawn = "M";
                             break;
-                        case BigPawn bigPawn:
+                        case BigPawnData bigPawn:
                             pawn = "G";
                             break;
                         default:
@@ -45,7 +45,7 @@
 @code {
     private HubConnection? hubConnection;
     private string? hubUrl;
-    private Board? board;
+    private BoardData? board;
     private bool isGame;
 
     protected override async Task OnInitializedAsync()
@@ -56,7 +56,7 @@
             hubUrl = baseUrl.TrimEnd('/') + MartianChessHub.HubUrl;
             hubConnection = new HubConnectionBuilder().WithUrl(hubUrl).Build();
             hubConnection.On<bool>("isGame", isGameSignalR);
-            hubConnection.On<Board>("OnBoard", OnBoardSignalR);
+            hubConnection.On<BoardData>("OnBoard", OnBoardSignalR);
             hubConnection.On<string, string>("OnShowError", OnShowError);
             await hubConnection.StartAsync();
         }
@@ -78,16 +78,15 @@
         StateHasChanged();
     }
 
-    private void OnBoardSignalR(Board board)
+    private void OnBoardSignalR(BoardData board)
     {
-        Console.WriteLine(board);
         this.board = board;
         StateHasChanged();
     }
 
-    private async Task displace(Coordinate coordinate)
+    private async Task displace(CoordinateData coordinate)
     {
-        Console.WriteLine($"{coordinate.getX()}" + " " + $"{coordinate.getY()}");
+        Console.WriteLine($"{coordinate.x}" + " " + $"{coordinate.y}");
         await hubConnection!.SendAsync("OnDisplace", coordinate);
     }
 

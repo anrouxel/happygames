@@ -1,3 +1,5 @@
+using happygames.Data.MartianChess;
+
 namespace happygames.Models.MartianChess
 {
     public class Player
@@ -9,6 +11,18 @@ namespace happygames.Models.MartianChess
         {
             this.username = username;
             this.capturedPawns = new List<Pawn>();
+        }
+
+        public PlayerData Clone()
+        {
+            Console.WriteLine("player début");
+            List<PawnData> capturedPawnsData = new List<PawnData>();
+            foreach (var item in capturedPawns)
+            {
+                capturedPawnsData.Add(item.Clone());
+            }
+            Console.WriteLine("player fin");
+            return new PlayerData(username, capturedPawnsData);
         }
 
         public List<Pawn> getCapturedPawns()
