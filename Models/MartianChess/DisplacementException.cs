@@ -1,4 +1,4 @@
-namespace happygames.Data.MartianChess
+namespace happygames.Models.MartianChess
 {
     public class DisplacementException : Exception
     {

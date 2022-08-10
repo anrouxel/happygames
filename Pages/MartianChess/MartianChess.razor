@@ -1,5 +1,5 @@
 @page "/martianchess"
-@using happygames.Data.MartianChess
+@using happygames.Models.MartianChess
 @using happygames.Hubs
 @inject NotificationService NotificationService
 @inject NavigationManager NavigationManager
@@ -80,6 +80,7 @@
 
     private void OnBoardSignalR(Board board)
     {
+        Console.WriteLine(board);
         this.board = board;
         StateHasChanged();
     }
@@ -87,7 +88,7 @@
     private async Task displace(Coordinate coordinate)
     {
         Console.WriteLine($"{coordinate.getX()}" + " " + $"{coordinate.getY()}");
-        await hubConnection!.SendAsync("OnDisplace", coordinate.getX(), coordinate.getY());
+        await hubConnection!.SendAsync("OnDisplace", coordinate);
     }
 
     private void OnShowError(string username, string message)
