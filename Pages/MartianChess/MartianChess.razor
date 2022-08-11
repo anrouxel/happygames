@@ -6,16 +6,16 @@
 @implements IDisposable
 
 @page "/martianchess"
-@attribute [Authorize]
+@* @attribute [Authorize] *@
 
 <PageTitle>Echec Martien</PageTitle>
 
 @if (isGame && board != null)
 {
-    <div class="container">
+    <div class="d-flex flex-column">
         @for (int y = 0; y < board.verticalSize; y++)
         {
-            <div class="row">
+            <div class="d-flex flex-row">
                 @for (int x = 0; x < board.horizontalSize; x++)
                 {
                     string pawn = "";
@@ -24,9 +24,7 @@
                         pawn = board.boxes[y][x].pawn!.pawn;
                     }
                     CoordinateData coordinate = new CoordinateData(x, y);
-                    <div class="col">
-                        <RadzenButton Style="height: 50px; width: 100%;" Text=@pawn Click="() => displace(coordinate)" />
-                    </div>
+                    <RadzenButton Style="height: 5rem; width: 5rem; border-radius: 0%;" Text=@pawn Click="() => displace(coordinate)" />
                 }
             </div>
         }

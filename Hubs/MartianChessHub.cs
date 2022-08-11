@@ -6,7 +6,7 @@ using happygames.Data.MartianChess;
 
 namespace happygames.Hubs
 {
-    [Authorize]
+    // [Authorize]
     public class MartianChessHub : Hub
     {
         public const string HubUrl = "/martianchesshub";
