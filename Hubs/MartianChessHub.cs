@@ -1,10 +1,12 @@
 using System.Collections.Concurrent;
 using Microsoft.AspNetCore.SignalR;
+using Microsoft.AspNetCore.Authorization;
 using happygames.Models.MartianChess;
 using happygames.Data.MartianChess;
 
 namespace happygames.Hubs
 {
+    [Authorize]
     public class MartianChessHub : Hub
     {
         public const string HubUrl = "/martianchesshub";
@@ -12,7 +14,7 @@ namespace happygames.Hubs
 
         public override async Task OnConnectedAsync()
         {
-            Console.WriteLine($"{Context.ConnectionId} connected");
+            Console.WriteLine($"{Context.UserIdentifier} connected");
             string guid;
             if (groups.Where(item => !item.Value.isPlayerCompleted()).Count() != 0)
             {
@@ -24,7 +26,7 @@ namespace happygames.Hubs
                 groups.TryAdd(guid, new Game());
             }
             Context.Items.Add("group", guid);
-            Context.Items.Add("player", new Player(Context.ConnectionId, Context.ConnectionId));
+            Context.Items.Add("player", new Player(Context.UserIdentifier!, Context.ConnectionId));
             await Groups.AddToGroupAsync(Context.ConnectionId, guid.ToString());
             groups[guid].initializePlayer((Context.Items["player"] as Player)!);
             if (groups[guid].isPlayerCompleted())
@@ -39,7 +41,7 @@ namespace happygames.Hubs
 
         public override async Task OnDisconnectedAsync(Exception? exception)
         {
-            Console.WriteLine($"{Context.ConnectionId} disconnected");
+            Console.WriteLine($"{Context.UserIdentifier} disconnected");
             string guid = (Context.Items["group"] as string)!;
             if (groups[guid].isPlayerCompleted())
             {
