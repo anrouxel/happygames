@@ -40,9 +40,17 @@ namespace happygames.Hubs
         public override async Task OnDisconnectedAsync(Exception? exception)
         {
             Console.WriteLine($"{Context.ConnectionId} disconnected");
-            groups[(Context.Items["group"] as string)!].removePlayer((Context.Items["player"] as Player)!);
-            await Clients.Group((Context.Items["group"] as string)!).SendAsync("isGame", false);
-            await Clients.Group((Context.Items["group"] as string)!).SendAsync("OnNotificationWarning", "", $"Le joueur {(Context.Items["player"] as Player)!.getUsername()} a quitté la partie.");
+            string guid = (Context.Items["group"] as string)!;
+            if (groups[guid].isPlayerCompleted())
+            {
+                groups[guid].removePlayer((Context.Items["player"] as Player)!);
+                await Clients.Group(guid).SendAsync("isGame", false);
+                await Clients.Group(guid).SendAsync("OnNotificationWarning", "", $"Le joueur {(Context.Items["player"] as Player)!.getUsername()} a quitté la partie.");
+            }
+            else
+            {
+                groups.Remove(guid, out _);
+            }
             await base.OnDisconnectedAsync(exception);
         }
 
