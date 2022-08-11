@@ -39,6 +39,7 @@ namespace happygames.Hubs
         {
             Console.WriteLine($"{Context.ConnectionId} disconnected");
             groups[(Context.Items["group"] as string)!].removePlayer((Context.Items["player"] as Player)!);
+            await Clients.Group((Context.Items["group"] as string)!).SendAsync("isGame", false);
             await base.OnDisconnectedAsync(exception);
         }
 
