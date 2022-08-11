@@ -24,14 +24,16 @@ namespace happygames.Hubs
                 groups.TryAdd(guid, new Game());
             }
             Context.Items.Add("group", guid);
-            Context.Items.Add("player", new Player(Context.ConnectionId));
+            Context.Items.Add("player", new Player(Context.ConnectionId, Context.ConnectionId));
             await Groups.AddToGroupAsync(Context.ConnectionId, guid.ToString());
             groups[guid].initializePlayer((Context.Items["player"] as Player)!);
             if (groups[guid].isPlayerCompleted())
             {
                 groups[guid].initializeGame(3);
-                await Clients.Group(guid).SendAsync("isGame", true);
                 await OnBoard();
+                await Clients.Group(guid).SendAsync("isGame", true);
+                await Clients.Group(guid).SendAsync("OnNotificationInfo", "", "La partie commence");
+                await OnCurrentPlayer();
             }
         }
 
@@ -40,6 +42,7 @@ namespace happygames.Hubs
             Console.WriteLine($"{Context.ConnectionId} disconnected");
             groups[(Context.Items["group"] as string)!].removePlayer((Context.Items["player"] as Player)!);
             await Clients.Group((Context.Items["group"] as string)!).SendAsync("isGame", false);
+            await Clients.Group((Context.Items["group"] as string)!).SendAsync("OnNotificationWarning", "", $"Le joueur {(Context.Items["player"] as Player)!.getUsername()} a quitté la partie.");
             await base.OnDisconnectedAsync(exception);
         }
 
@@ -49,30 +52,59 @@ namespace happygames.Hubs
             await Clients.Group(guid).SendAsync("OnBoard", groups[guid].getBoard().Clone());
         }
 
+        public async Task OnCurrentPlayer()
+        {
+            string guid = (Context.Items["group"] as string)!;
+            await Clients.Client(groups[guid].getCurrentPlayer()!.getConnectionId()).SendAsync("OnNotificationInfo", groups[guid].getCurrentPlayer()!.getUsername(), "C'est à ton tour de jouer.");
+        }
+
         public async Task OnDisplace(CoordinateData coordinateData)
         {
             Coordinate coordinate = new Coordinate(coordinateData.x, coordinateData.y);
             string guid = (Context.Items["group"] as string)!;
-            if (groups[guid].getIsDisplace() == true)
+            if ((Context.Items["player"] as Player) == groups[guid].getCurrentPlayer())
             {
-                try
+                if (groups[guid].getIsDisplace() == true)
                 {
-                    groups[guid].setCoordDestinationDisplacement(coordinate);
-                    groups[guid].displace(groups[guid].getCoordOriginDisplacement().getX(), groups[guid].getCoordOriginDisplacement().getY(),
-                    groups[guid].getCoordDestinationDisplacement().getX(), groups[guid].getCoordDestinationDisplacement().getY(), (Context.Items["player"] as Player));
-                    groups[guid].changePlayer();
-                    await OnBoard();
+                    try
+                    {
+                        groups[guid].setCoordDestinationDisplacement(coordinate);
+                        groups[guid].displace(groups[guid].getCoordOriginDisplacement().getX(), groups[guid].getCoordOriginDisplacement().getY(),
+                        groups[guid].getCoordDestinationDisplacement().getX(), groups[guid].getCoordDestinationDisplacement().getY(), (Context.Items["player"] as Player));
+                        groups[guid].changePlayer();
+                        await OnBoard();
+                        if (groups[guid].stopGame())
+                        {
+                            await Clients.Group(guid).SendAsync("OnNotificationSuccess", "Fin de la partie", $"Le vainqueur est {groups[guid].winnerPlayer()}.");
+                        }
+                        else
+                        {
+                            await OnCurrentPlayer();
+                        }
+                    }
+                    catch (DisplacementException e)
+                    {
+                        await Clients.Caller.SendAsync("OnNotificationError", (Context.Items["player"] as Player)!.getUsername(), e.Message);
+                    }
+                    groups[guid].setIsDisplace(false);
                 }
-                catch (DisplacementException e)
+                else
                 {
-                    await Clients.Caller.SendAsync("OnShowError", groups[guid].getCurrentPlayer()!.getUsername(), e.Message);
+                    if (groups[guid].possibleDisplacement(coordinate.getX(), coordinate.getY()))
+                    {
+                        groups[guid].setCoordOriginDisplacement(coordinate);
+                        groups[guid].setIsDisplace(true);
+                    }
+                    else
+                    {
+                        await Clients.Caller.SendAsync("OnNotificationError", (Context.Items["player"] as Player)!.getUsername(), "Le pion ne pourra pas bouger");
+                    }
                 }
-                groups[guid].setIsDisplace(false);
+                Console.WriteLine(groups[guid].stopGame());
             }
             else
             {
-                groups[guid].setCoordOriginDisplacement(coordinate);
-                groups[guid].setIsDisplace(true);
+                await Clients.Caller.SendAsync("OnNotificationError", (Context.Items["player"] as Player)!.getUsername(), "Ce n'est pas à ton tour de jouer.");
             }
         }
     }

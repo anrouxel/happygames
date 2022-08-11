@@ -82,18 +82,22 @@ namespace happygames.Models.MartianChess
 
         public bool possibleDisplacement(int coordOriginX, int coordOriginY)
         {
-            for (int y = coordOriginY - 1; y < coordOriginY + 1; y++)
+            for (int y = coordOriginY - 1; y <= coordOriginY + 1; y++)
             {
-                for (int x = coordOriginX - 1; x < coordOriginX + 1; x++)
+                for (int x = coordOriginX - 1; x <= coordOriginX + 1; x++)
                 {
-                    if (x > 0 && x < board.getHorizontalSize() && y > 0 && y < board.getVerticalSize())
+                    if (x > 0 && x < board.getHorizontalSize() && y > 0 && y < board.getVerticalSize() && coordOriginX != x && coordOriginY != y)
                     {
-                        try
+                        Console.WriteLine($"x : {x}, y : {y}");
+                        if (board.getBoxes()[y, x].getPawn() == null)
                         {
-                            board.getBoxes()[coordOriginY, coordOriginX].getPawn()!.getDisplacement(new Displacement(new Coordinate(coordOriginX, coordOriginY), new Coordinate(x, y)));
-                            return true;
+                            try
+                            {
+                                board.getBoxes()[coordOriginY, coordOriginX].getPawn()!.getDisplacement(new Displacement(new Coordinate(coordOriginX, coordOriginY), new Coordinate(x, y)));
+                                return true;
+                            }
+                            catch (DisplacementException) { }
                         }
-                        catch (DisplacementException) { }
                     }
                 }
             }
@@ -102,7 +106,7 @@ namespace happygames.Models.MartianChess
 
         public bool possibleDisplacement(int coordOriginX, int coordOriginY, int coordDestinationX, int coordDestinationY, Player? player)
         {
-            if (player!.getUsername() == currentPlayer!.getUsername())
+            if (player == currentPlayer)
             {
                 if (coordOriginX >= 0 && coordOriginX < board.getHorizontalSize() && coordDestinationX >= 0 && coordDestinationX < board.getHorizontalSize() && coordOriginY >= 0 && coordOriginY < board.getVerticalSize() && coordDestinationY >= 0 && coordDestinationY < board.getVerticalSize())
                 {
@@ -179,16 +183,17 @@ namespace happygames.Models.MartianChess
             {
                 for (int x = 0; x < board.getHorizontalSize(); x++)
                 {
-                    if (board.getBoxes()[y, x].getPawn() == null)
+                    if (board.getBoxes()[y, x].getPawn() != null)
                     {
                         pawnPlayer1 += 1;
                     }
-                    if (board.getBoxes()[board.getVerticalSize() - 1 - y, x].getPawn() == null)
+                    if (board.getBoxes()[board.getVerticalSize() - 1 - y, x].getPawn() != null)
                     {
                         pawnPlayer2 += 1;
                     }
                 }
             }
+            Console.WriteLine($"Player 1 : {pawnPlayer1}, Player 2 : {pawnPlayer2}");
             if (pawnPlayer1 <= 0 || pawnPlayer2 <= 0 || nswg >= mnswg)
             {
                 return true;
@@ -199,21 +204,6 @@ namespace happygames.Models.MartianChess
         public Board getBoard()
         {
             return board;
-        }
-
-        public int getHorizontalSize()
-        {
-            return board.getHorizontalSize();
-        }
-
-        public int getVerticalSize()
-        {
-            return board.getVerticalSize();
-        }
-
-        public string getBoardString()
-        {
-            return board.ToString();
         }
 
         public bool getIsDisplace()

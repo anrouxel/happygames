@@ -5,11 +5,13 @@ namespace happygames.Models.MartianChess
     public class Player
     {
         private string username;
+        private string connectionId;
         private List<Pawn> capturedPawns;
 
-        public Player(string username)
+        public Player(string username, string connectionId)
         {
             this.username = username;
+            this.connectionId = connectionId;
             this.capturedPawns = new List<Pawn>();
         }
 
@@ -20,7 +22,7 @@ namespace happygames.Models.MartianChess
             {
                 capturedPawnsData.Add(item.Clone());
             }
-            return new PlayerData(username, capturedPawnsData);
+            return new PlayerData(username, connectionId, capturedPawnsData);
         }
 
         public List<Pawn> getCapturedPawns()
@@ -41,6 +43,11 @@ namespace happygames.Models.MartianChess
         public string getUsername()
         {
             return username;
+        }
+
+        public string getConnectionId()
+        {
+            return connectionId;
         }
 
         public int getScore()
