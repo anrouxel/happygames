@@ -18,21 +18,15 @@ namespace happygames.Models.MartianChess
 
         public BoardData Clone()
         {
-            Console.WriteLine("board début");
             BoxData[][] boxesData = new BoxData[verticalSize][];
-            for (int i = 0; i < verticalSize; i++)
-            {
-                boxesData[i] = new BoxData[horizontalSize];
-            }
             for (int y = 0; y < verticalSize; y++)
             {
+                boxesData[y] = new BoxData[horizontalSize];
                 for (int x = 0; x < horizontalSize; x++)
                 {
-                    Console.WriteLine($"===== {y}, {x}");
                     boxesData[y][x] = boxes[y, x].Clone();
                 }
             }
-            Console.WriteLine("board fin");
             return new BoardData(boxesData, horizontalSize, verticalSize);
         }
 

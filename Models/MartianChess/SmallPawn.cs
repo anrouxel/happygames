@@ -21,7 +21,7 @@ namespace happygames.Models.MartianChess
 
         public override PawnData Clone()
         {
-            return new SmallPawnData();
+            return new PawnData("P", getScore());
         }
     }
 }

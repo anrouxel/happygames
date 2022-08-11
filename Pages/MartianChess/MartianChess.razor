@@ -16,23 +16,12 @@
             <div class="row">
                 @for (int x = 0; x < board.horizontalSize; x++)
                 {
-                    string pawn;
-                    CoordinateData coordinate = new CoordinateData(x, y);
-                    switch (board.boxes[y][x].pawn)
+                    string pawn = "";
+                    if (board.boxes[y][x].pawn != null)
                     {
-                        case SmallPawnData smallPawn:
-                            pawn = "P";
-                            break;
-                        case MediumPawnData mediumPawn:
-                            pawn = "M";
-                            break;
-                        case BigPawnData bigPawn:
-                            pawn = "G";
-                            break;
-                        default:
-                            pawn = "";
-                            break;
+                        pawn = board.boxes[y][x].pawn!.pawn;
                     }
+                    CoordinateData coordinate = new CoordinateData(x, y);
                     <div class="col">
                         <RadzenButton Style="height: 50px; width: 100%;" Text=@pawn Click="() => displace(coordinate)"/>
                     </div>
@@ -80,13 +69,12 @@
 
     private void OnBoardSignalR(BoardData board)
     {
-        Console.WriteLine("ok");
+        this.board = board;
         StateHasChanged();
     }
 
     private async Task displace(CoordinateData coordinate)
     {
-        Console.WriteLine($"{coordinate.x}" + " " + $"{coordinate.y}");
         await hubConnection!.SendAsync("OnDisplace", coordinate);
     }
 

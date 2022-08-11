@@ -1,8 +1,14 @@
 namespace happygames.Data.MartianChess
 {
-    public abstract class PawnData
+    public class PawnData
     {
-        public abstract string pawn {get; init;}
-        public abstract int score {get; init;}
+        public string pawn {get; init;}
+        public int score {get; init;}
+
+        public PawnData(string pawn, int score)
+        {
+            this.pawn = pawn;
+            this.score = score;
+        }
     }
 }

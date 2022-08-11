@@ -32,7 +32,7 @@ namespace happygames.Models.MartianChess
 
         public override PawnData Clone()
         {
-            return new MediumPawnData();;
+            return new PawnData("M", getScore());
         }
     }
 }

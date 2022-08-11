@@ -15,13 +15,11 @@ namespace happygames.Models.MartianChess
 
         public PlayerData Clone()
         {
-            Console.WriteLine("player début");
             List<PawnData> capturedPawnsData = new List<PawnData>();
             foreach (var item in capturedPawns)
             {
                 capturedPawnsData.Add(item.Clone());
             }
-            Console.WriteLine("player fin");
             return new PlayerData(username, capturedPawnsData);
         }
 
