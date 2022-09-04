@@ -11,6 +11,7 @@ namespace happygames.Models.MartianChess
         private Player?[] players = new Player[2]; // List of players
         private Player? currentPlayer;
         private Board board = new Board();
+        private Pawn? backPawn = null;
         private bool isDisplace;
 
         public GameData Clone()
@@ -20,7 +21,7 @@ namespace happygames.Models.MartianChess
             {
                 playersData[i] = players[i]!.Clone();
             }
-            return new GameData(nswg, mnswg, originCoordinate!.Clone(), destinationCoordinate!.Clone(), playersData, currentPlayer!.Clone(), board.Clone(), isDisplace);
+            return new GameData(nswg, mnswg, originCoordinate!.Clone(), destinationCoordinate!.Clone(), playersData, currentPlayer!.Clone(), board.Clone(), backPawn!.Clone(), isDisplace);
         }
 
         public Coordinate getCoordOriginDisplacement()
@@ -112,7 +113,7 @@ namespace happygames.Models.MartianChess
             {
                 if (coordOriginX >= 0 && coordOriginX < board.getHorizontalSize() && coordDestinationX >= 0 && coordDestinationX < board.getHorizontalSize() && coordOriginY >= 0 && coordOriginY < board.getVerticalSize() && coordDestinationY >= 0 && coordDestinationY < board.getVerticalSize())
                 {
-                    if (player == board.getBoxes()[coordOriginY, coordOriginX].getPlayer() && board.getBoxes()[coordOriginY, coordOriginX].getPawn() is Pawn)
+                    if (player == board.getBoxes()[coordOriginY, coordOriginX].getPlayer() && board.getBoxes()[coordOriginY, coordOriginX].getPawn() is Pawn && board.getBoxes()[coordOriginY, coordOriginX].getPawn() != backPawn)
                     {
                         List<Coordinate>? displacement = null;
                         try
@@ -136,7 +137,7 @@ namespace happygames.Models.MartianChess
                             throw new DisplacementException(e.Message);
                         }
                     }
-                    throw new DisplacementException("Ce ne sont pas tes cases ou tu as sélectioné une case vide pour le départ.");
+                    throw new DisplacementException("Ce ne sont pas tes cases ou tu as sélectioné une case vide pour le départ ou tu n'as pas le droit de renvoyer ce pion à l'adversaire.");
                 }
                 throw new DisplacementException("Déplacement impossible x ou y sort du plateau");
             }
@@ -151,6 +152,7 @@ namespace happygames.Models.MartianChess
                 {
                     nswg += 1;
                 }
+                backPawn = board.getBoxes()[coordOriginY, coordOriginX].getPawn();
                 board.getBoxes()[coordDestinationY, coordDestinationX].setPawn(board.getBoxes()[coordOriginY, coordOriginX].getPawn()!);
                 board.getBoxes()[coordOriginY, coordOriginX].setPawn(null);
             }

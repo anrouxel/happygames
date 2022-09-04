@@ -24,7 +24,8 @@
                         pawn = board.boxes[y][x].pawn!.pawn;
                     }
                     CoordinateData coordinate = new CoordinateData(x, y);
-                    <RadzenButton Style="height: 5rem; width: 5rem; border-radius: 0%;" Text=@pawn Click="() => displace(coordinate)" />
+                    <RadzenButton Style="height: 5rem; width: 5rem; border-radius: 0%;" Text=@pawn
+            Click="() => displace(coordinate)" />
                 }
             </div>
         }
@@ -46,10 +47,7 @@
             hubConnection = new HubConnectionBuilder().WithUrl(hubUrl).Build();
             hubConnection.On<bool>("isGame", isGameSignalR);
             hubConnection.On<BoardData>("OnBoard", OnBoardSignalR);
-            hubConnection.On<string, string>("OnNotificationError", OnNotificationError);
-            hubConnection.On<string, string>("OnNotificationInfo", OnNotificationInfo);
-            hubConnection.On<string, string>("OnNotificationSuccess", OnNotificationSuccess);
-            hubConnection.On<string, string>("OnNotificationWarning", OnNotificationWarning);
+            hubConnection.On<NotificationSeverity, string, string>("OnNotification", OnNotification);
             await hubConnection.StartAsync();
         }
         catch (Exception)
@@ -81,33 +79,13 @@
         await hubConnection!.SendAsync("OnDisplace", coordinate);
     }
 
-    private void OnNotificationError(string username, string message)
-    {
-        OnNotification(NotificationSeverity.Error, username, message);
-    }
-
-    private void OnNotificationInfo(string username, string message)
-    {
-        OnNotification(NotificationSeverity.Info, username, message);
-    }
-
-    private void OnNotificationSuccess(string username, string message)
-    {
-        OnNotification(NotificationSeverity.Success, username, message);
-    }
-
-    private void OnNotificationWarning(string username, string message)
-    {
-        OnNotification(NotificationSeverity.Warning, username, message);
-    }
-
-    public void OnNotification(NotificationSeverity notificationSeverity, string username, string message)
+    private void OnNotification(NotificationSeverity severity, string summary, string detail)
     {
         NotificationMessage notificationMessage = new NotificationMessage
         {
-            Severity = notificationSeverity,
-            Summary = username,
-            Detail = message,
+            Severity = severity,
+            Summary = summary,
+            Detail = detail,
             Duration = 4000
         };
         NotificationService.Notify(notificationMessage);
