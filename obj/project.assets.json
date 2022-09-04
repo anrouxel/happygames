@@ -5,7 +5,7 @@
       "Humanizer.Core/2.8.26": {
         "type": "package",
         "compile": {
-          "lib/netstandard2.0/Humanizer.dll": {}
+          "lib/netstandard2.0/_._": {}
         },
         "runtime": {
           "lib/netstandard2.0/Humanizer.dll": {}
@@ -17,71 +17,71 @@
           "build/_._": {}
         }
       },
-      "Microsoft.AspNetCore.Authorization/5.0.0": {
+      "Microsoft.AspNetCore.Authorization/6.0.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Metadata": "5.0.0",
-          "Microsoft.Extensions.Logging.Abstractions": "5.0.0",
-          "Microsoft.Extensions.Options": "5.0.0"
+          "Microsoft.AspNetCore.Metadata": "6.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "6.0.0",
+          "Microsoft.Extensions.Options": "6.0.0"
         },
         "compile": {
-          "lib/net5.0/Microsoft.AspNetCore.Authorization.dll": {}
+          "lib/net6.0/Microsoft.AspNetCore.Authorization.dll": {}
         },
         "runtime": {
-          "lib/net5.0/Microsoft.AspNetCore.Authorization.dll": {}
+          "lib/net6.0/Microsoft.AspNetCore.Authorization.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Components/5.0.0": {
+      "Microsoft.AspNetCore.Components/6.0.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Authorization": "5.0.0",
-          "Microsoft.AspNetCore.Components.Analyzers": "5.0.0"
+          "Microsoft.AspNetCore.Authorization": "6.0.0",
+          "Microsoft.AspNetCore.Components.Analyzers": "6.0.0"
         },
         "compile": {
-          "lib/net5.0/Microsoft.AspNetCore.Components.dll": {}
+          "lib/net6.0/Microsoft.AspNetCore.Components.dll": {}
         },
         "runtime": {
-          "lib/net5.0/Microsoft.AspNetCore.Components.dll": {}
+          "lib/net6.0/Microsoft.AspNetCore.Components.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Components.Analyzers/5.0.0": {
+      "Microsoft.AspNetCore.Components.Analyzers/6.0.0": {
         "type": "package",
         "build": {
           "buildTransitive/netstandard2.0/Microsoft.AspNetCore.Components.Analyzers.targets": {}
         }
       },
-      "Microsoft.AspNetCore.Components.Forms/5.0.0": {
+      "Microsoft.AspNetCore.Components.Forms/6.0.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Components": "5.0.0"
+          "Microsoft.AspNetCore.Components": "6.0.0"
         },
         "compile": {
-          "lib/net5.0/Microsoft.AspNetCore.Components.Forms.dll": {}
+          "lib/net6.0/Microsoft.AspNetCore.Components.Forms.dll": {}
         },
         "runtime": {
-          "lib/net5.0/Microsoft.AspNetCore.Components.Forms.dll": {}
+          "lib/net6.0/Microsoft.AspNetCore.Components.Forms.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Components.Web/5.0.0": {
+      "Microsoft.AspNetCore.Components.Web/6.0.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Components": "5.0.0",
-          "Microsoft.AspNetCore.Components.Forms": "5.0.0",
-          "Microsoft.Extensions.DependencyInjection": "5.0.0",
-          "Microsoft.JSInterop": "5.0.0",
-          "System.IO.Pipelines": "5.0.0"
+          "Microsoft.AspNetCore.Components": "6.0.0",
+          "Microsoft.AspNetCore.Components.Forms": "6.0.0",
+          "Microsoft.Extensions.DependencyInjection": "6.0.0",
+          "Microsoft.JSInterop": "6.0.0",
+          "System.IO.Pipelines": "6.0.0"
         },
         "compile": {
-          "lib/net5.0/Microsoft.AspNetCore.Components.Web.dll": {}
+          "lib/net6.0/Microsoft.AspNetCore.Components.Web.dll": {}
         },
         "runtime": {
-          "lib/net5.0/Microsoft.AspNetCore.Components.Web.dll": {}
+          "lib/net6.0/Microsoft.AspNetCore.Components.Web.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Connections.Abstractions/6.0.7": {
+      "Microsoft.AspNetCore.Connections.Abstractions/6.0.8": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.Features": "6.0.7",
+          "Microsoft.Extensions.Features": "6.0.8",
           "System.IO.Pipelines": "6.0.3"
         },
         "compile": {
@@ -91,7 +91,7 @@
           "lib/net6.0/Microsoft.AspNetCore.Connections.Abstractions.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Cryptography.Internal/6.0.6": {
+      "Microsoft.AspNetCore.Cryptography.Internal/6.0.8": {
         "type": "package",
         "compile": {
           "lib/net6.0/Microsoft.AspNetCore.Cryptography.Internal.dll": {}
@@ -100,10 +100,10 @@
           "lib/net6.0/Microsoft.AspNetCore.Cryptography.Internal.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Cryptography.KeyDerivation/6.0.6": {
+      "Microsoft.AspNetCore.Cryptography.KeyDerivation/6.0.8": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Cryptography.Internal": "6.0.6"
+          "Microsoft.AspNetCore.Cryptography.Internal": "6.0.8"
         },
         "compile": {
           "lib/net6.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll": {}
@@ -112,10 +112,10 @@
           "lib/net6.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore/6.0.6": {
+      "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore/6.0.8": {
         "type": "package",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Relational": "6.0.6"
+          "Microsoft.EntityFrameworkCore.Relational": "6.0.8"
         },
         "compile": {
           "lib/net6.0/Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll": {}
@@ -127,10 +127,10 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "Microsoft.AspNetCore.Http.Connections.Client/6.0.7": {
+      "Microsoft.AspNetCore.Http.Connections.Client/6.0.8": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Http.Connections.Common": "6.0.7",
+          "Microsoft.AspNetCore.Http.Connections.Common": "6.0.8",
           "Microsoft.Extensions.Logging.Abstractions": "6.0.1",
           "Microsoft.Extensions.Options": "6.0.0"
         },
@@ -141,10 +141,10 @@
           "lib/net6.0/Microsoft.AspNetCore.Http.Connections.Client.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Http.Connections.Common/6.0.7": {
+      "Microsoft.AspNetCore.Http.Connections.Common/6.0.8": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Connections.Abstractions": "6.0.7"
+          "Microsoft.AspNetCore.Connections.Abstractions": "6.0.8"
         },
         "compile": {
           "lib/net6.0/Microsoft.AspNetCore.Http.Connections.Common.dll": {}
@@ -153,11 +153,11 @@
           "lib/net6.0/Microsoft.AspNetCore.Http.Connections.Common.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Identity.EntityFrameworkCore/6.0.6": {
+      "Microsoft.AspNetCore.Identity.EntityFrameworkCore/6.0.8": {
         "type": "package",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Relational": "6.0.6",
-          "Microsoft.Extensions.Identity.Stores": "6.0.6"
+          "Microsoft.EntityFrameworkCore.Relational": "6.0.8",
+          "Microsoft.Extensions.Identity.Stores": "6.0.8"
         },
         "compile": {
           "lib/net6.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll": {}
@@ -166,11 +166,11 @@
           "lib/net6.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Identity.UI/6.0.6": {
+      "Microsoft.AspNetCore.Identity.UI/6.0.8": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.FileProviders.Embedded": "6.0.6",
-          "Microsoft.Extensions.Identity.Stores": "6.0.6"
+          "Microsoft.Extensions.FileProviders.Embedded": "6.0.8",
+          "Microsoft.Extensions.Identity.Stores": "6.0.8"
         },
         "compile": {
           "lib/net6.0/Microsoft.AspNetCore.Identity.UI.dll": {}
@@ -189,20 +189,20 @@
           "buildMultiTargeting/Microsoft.AspNetCore.Identity.UI.targets": {}
         }
       },
-      "Microsoft.AspNetCore.Metadata/5.0.0": {
+      "Microsoft.AspNetCore.Metadata/6.0.0": {
         "type": "package",
         "compile": {
-          "lib/net5.0/Microsoft.AspNetCore.Metadata.dll": {}
+          "lib/net6.0/Microsoft.AspNetCore.Metadata.dll": {}
         },
         "runtime": {
-          "lib/net5.0/Microsoft.AspNetCore.Metadata.dll": {}
+          "lib/net6.0/Microsoft.AspNetCore.Metadata.dll": {}
         }
       },
-      "Microsoft.AspNetCore.SignalR.Client/6.0.7": {
+      "Microsoft.AspNetCore.SignalR.Client/6.0.8": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Http.Connections.Client": "6.0.7",
-          "Microsoft.AspNetCore.SignalR.Client.Core": "6.0.7"
+          "Microsoft.AspNetCore.Http.Connections.Client": "6.0.8",
+          "Microsoft.AspNetCore.SignalR.Client.Core": "6.0.8"
         },
         "compile": {
           "lib/net6.0/Microsoft.AspNetCore.SignalR.Client.dll": {}
@@ -211,11 +211,11 @@
           "lib/net6.0/Microsoft.AspNetCore.SignalR.Client.dll": {}
         }
       },
-      "Microsoft.AspNetCore.SignalR.Client.Core/6.0.7": {
+      "Microsoft.AspNetCore.SignalR.Client.Core/6.0.8": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.SignalR.Common": "6.0.7",
-          "Microsoft.AspNetCore.SignalR.Protocols.Json": "6.0.7",
+          "Microsoft.AspNetCore.SignalR.Common": "6.0.8",
+          "Microsoft.AspNetCore.SignalR.Protocols.Json": "6.0.8",
           "Microsoft.Extensions.DependencyInjection": "6.0.0",
           "Microsoft.Extensions.Logging": "6.0.0",
           "System.Threading.Channels": "6.0.0"
@@ -227,10 +227,10 @@
           "lib/net6.0/Microsoft.AspNetCore.SignalR.Client.Core.dll": {}
         }
       },
-      "Microsoft.AspNetCore.SignalR.Common/6.0.7": {
+      "Microsoft.AspNetCore.SignalR.Common/6.0.8": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Connections.Abstractions": "6.0.7",
+          "Microsoft.AspNetCore.Connections.Abstractions": "6.0.8",
           "Microsoft.Extensions.Options": "6.0.0"
         },
         "compile": {
@@ -240,10 +240,10 @@
           "lib/net6.0/Microsoft.AspNetCore.SignalR.Common.dll": {}
         }
       },
-      "Microsoft.AspNetCore.SignalR.Protocols.Json/6.0.7": {
+      "Microsoft.AspNetCore.SignalR.Protocols.Json/6.0.8": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.SignalR.Common": "6.0.7"
+          "Microsoft.AspNetCore.SignalR.Common": "6.0.8"
         },
         "compile": {
           "lib/net6.0/Microsoft.AspNetCore.SignalR.Protocols.Json.dll": {}
@@ -261,7 +261,7 @@
           "lib/netcoreapp2.0/_._": {}
         }
       },
-      "Microsoft.Data.Sqlite.Core/6.0.6": {
+      "Microsoft.Data.Sqlite.Core/6.0.8": {
         "type": "package",
         "dependencies": {
           "SQLitePCLRaw.core": "2.0.6"
@@ -273,11 +273,11 @@
           "lib/net6.0/Microsoft.Data.Sqlite.dll": {}
         }
       },
-      "Microsoft.EntityFrameworkCore/6.0.6": {
+      "Microsoft.EntityFrameworkCore/6.0.8": {
         "type": "package",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Abstractions": "6.0.6",
-          "Microsoft.EntityFrameworkCore.Analyzers": "6.0.6",
+          "Microsoft.EntityFrameworkCore.Abstractions": "6.0.8",
+          "Microsoft.EntityFrameworkCore.Analyzers": "6.0.8",
           "Microsoft.Extensions.Caching.Memory": "6.0.1",
           "Microsoft.Extensions.DependencyInjection": "6.0.0",
           "Microsoft.Extensions.Logging": "6.0.0",
@@ -294,7 +294,7 @@
           "buildTransitive/net6.0/Microsoft.EntityFrameworkCore.props": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.Abstractions/6.0.6": {
+      "Microsoft.EntityFrameworkCore.Abstractions/6.0.8": {
         "type": "package",
         "compile": {
           "lib/net6.0/Microsoft.EntityFrameworkCore.Abstractions.dll": {}
@@ -303,7 +303,7 @@
           "lib/net6.0/Microsoft.EntityFrameworkCore.Abstractions.dll": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.Analyzers/6.0.6": {
+      "Microsoft.EntityFrameworkCore.Analyzers/6.0.8": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/_._": {}
@@ -312,14 +312,14 @@
           "lib/netstandard2.0/_._": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.Design/6.0.6": {
+      "Microsoft.EntityFrameworkCore.Design/6.0.8": {
         "type": "package",
         "dependencies": {
           "Humanizer.Core": "2.8.26",
-          "Microsoft.EntityFrameworkCore.Relational": "6.0.6"
+          "Microsoft.EntityFrameworkCore.Relational": "6.0.8"
         },
         "compile": {
-          "lib/net6.0/Microsoft.EntityFrameworkCore.Design.dll": {}
+          "lib/net6.0/_._": {}
         },
         "runtime": {
           "lib/net6.0/Microsoft.EntityFrameworkCore.Design.dll": {}
@@ -328,10 +328,10 @@
           "build/net6.0/Microsoft.EntityFrameworkCore.Design.props": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.Relational/6.0.6": {
+      "Microsoft.EntityFrameworkCore.Relational/6.0.8": {
         "type": "package",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore": "6.0.6",
+          "Microsoft.EntityFrameworkCore": "6.0.8",
           "Microsoft.Extensions.Configuration.Abstractions": "6.0.0"
         },
         "compile": {
@@ -341,10 +341,10 @@
           "lib/net6.0/Microsoft.EntityFrameworkCore.Relational.dll": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.Sqlite/6.0.6": {
+      "Microsoft.EntityFrameworkCore.Sqlite/6.0.8": {
         "type": "package",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Sqlite.Core": "6.0.6",
+          "Microsoft.EntityFrameworkCore.Sqlite.Core": "6.0.8",
           "SQLitePCLRaw.bundle_e_sqlite3": "2.0.6"
         },
         "compile": {
@@ -354,11 +354,11 @@
           "lib/net6.0/_._": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.Sqlite.Core/6.0.6": {
+      "Microsoft.EntityFrameworkCore.Sqlite.Core/6.0.8": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Data.Sqlite.Core": "6.0.6",
-          "Microsoft.EntityFrameworkCore.Relational": "6.0.6",
+          "Microsoft.Data.Sqlite.Core": "6.0.8",
+          "Microsoft.EntityFrameworkCore.Relational": "6.0.8",
           "Microsoft.Extensions.DependencyModel": "6.0.0"
         },
         "compile": {
@@ -368,10 +368,10 @@
           "lib/net6.0/Microsoft.EntityFrameworkCore.Sqlite.dll": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.Tools/6.0.6": {
+      "Microsoft.EntityFrameworkCore.Tools/6.0.8": {
         "type": "package",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Design": "6.0.6"
+          "Microsoft.EntityFrameworkCore.Design": "6.0.8"
         },
         "compile": {
           "lib/net6.0/_._": {}
@@ -464,7 +464,7 @@
           "lib/netstandard2.0/Microsoft.Extensions.DependencyModel.dll": {}
         }
       },
-      "Microsoft.Extensions.Features/6.0.7": {
+      "Microsoft.Extensions.Features/6.0.8": {
         "type": "package",
         "compile": {
           "lib/net6.0/Microsoft.Extensions.Features.dll": {}
@@ -488,7 +488,7 @@
           "buildTransitive/netcoreapp3.1/_._": {}
         }
       },
-      "Microsoft.Extensions.FileProviders.Embedded/6.0.6": {
+      "Microsoft.Extensions.FileProviders.Embedded/6.0.8": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.FileProviders.Abstractions": "6.0.0"
@@ -506,10 +506,10 @@
           "buildMultiTargeting/_._": {}
         }
       },
-      "Microsoft.Extensions.Identity.Core/6.0.6": {
+      "Microsoft.Extensions.Identity.Core/6.0.8": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Cryptography.KeyDerivation": "6.0.6",
+          "Microsoft.AspNetCore.Cryptography.KeyDerivation": "6.0.8",
           "Microsoft.Extensions.Logging": "6.0.0",
           "Microsoft.Extensions.Options": "6.0.0"
         },
@@ -520,11 +520,11 @@
           "lib/net6.0/Microsoft.Extensions.Identity.Core.dll": {}
         }
       },
-      "Microsoft.Extensions.Identity.Stores/6.0.6": {
+      "Microsoft.Extensions.Identity.Stores/6.0.8": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.Caching.Abstractions": "6.0.0",
-          "Microsoft.Extensions.Identity.Core": "6.0.6",
+          "Microsoft.Extensions.Identity.Core": "6.0.8",
           "Microsoft.Extensions.Logging": "6.0.0"
         },
         "compile": {
@@ -590,29 +590,29 @@
           "buildTransitive/netcoreapp3.1/_._": {}
         }
       },
-      "Microsoft.JSInterop/5.0.0": {
+      "Microsoft.JSInterop/6.0.0": {
         "type": "package",
         "compile": {
-          "lib/net5.0/Microsoft.JSInterop.dll": {}
+          "lib/net6.0/Microsoft.JSInterop.dll": {}
         },
         "runtime": {
-          "lib/net5.0/Microsoft.JSInterop.dll": {}
+          "lib/net6.0/Microsoft.JSInterop.dll": {}
         }
       },
-      "Radzen.Blazor/3.19.2": {
+      "Radzen.Blazor/3.20.9": {
         "type": "package",
         "dependencies": {
           "LibSassBuilder": "2.0.1",
-          "Microsoft.AspNetCore.Components": "5.0.0",
-          "Microsoft.AspNetCore.Components.Web": "5.0.0",
+          "Microsoft.AspNetCore.Components": "6.0.0",
+          "Microsoft.AspNetCore.Components.Web": "6.0.0",
           "Microsoft.CSharp": "4.7.0",
           "System.Linq.Dynamic.Core": "1.2.12"
         },
         "compile": {
-          "lib/net5.0/Radzen.Blazor.dll": {}
+          "lib/net6.0/Radzen.Blazor.dll": {}
         },
         "runtime": {
-          "lib/net5.0/Radzen.Blazor.dll": {}
+          "lib/net6.0/Radzen.Blazor.dll": {}
         },
         "build": {
           "buildTransitive/Radzen.Blazor.props": {}
@@ -909,10 +909,10 @@
         "tool/x64/libsass.dll"
       ]
     },
-    "Microsoft.AspNetCore.Authorization/5.0.0": {
-      "sha512": "kNiUekkQZIgd0k8WJZVLpdaJSTgpwHT+gn9slPtON4FC8vGGsFWQo3Bd5wo363EJuxlOgszUNQBbpLAaFh1kFg==",
+    "Microsoft.AspNetCore.Authorization/6.0.0": {
+      "sha512": "HPEhmNwINXzGVWirzmvVxx5/GkoaQJC7vKNIbhOUTzgnRHEf2zO6S2s4lMw3TPFWBGcAlfn6Ta0cVB9f15QC8w==",
       "type": "package",
-      "path": "microsoft.aspnetcore.authorization/5.0.0",
+      "path": "microsoft.aspnetcore.authorization/6.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -920,33 +920,33 @@
         "THIRD-PARTY-NOTICES.TXT",
         "lib/net461/Microsoft.AspNetCore.Authorization.dll",
         "lib/net461/Microsoft.AspNetCore.Authorization.xml",
-        "lib/net5.0/Microsoft.AspNetCore.Authorization.dll",
-        "lib/net5.0/Microsoft.AspNetCore.Authorization.xml",
+        "lib/net6.0/Microsoft.AspNetCore.Authorization.dll",
+        "lib/net6.0/Microsoft.AspNetCore.Authorization.xml",
         "lib/netstandard2.0/Microsoft.AspNetCore.Authorization.dll",
         "lib/netstandard2.0/Microsoft.AspNetCore.Authorization.xml",
-        "microsoft.aspnetcore.authorization.5.0.0.nupkg.sha512",
+        "microsoft.aspnetcore.authorization.6.0.0.nupkg.sha512",
         "microsoft.aspnetcore.authorization.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Components/5.0.0": {
-      "sha512": "kfJF9EqJGzVgfEN15vWI+8g+ZhtlMAk9YO6G8lXKO9s1AxWv+Ct4OLOMO46PXyjPWWJ7X9gded9EFVFyxsdyjg==",
+    "Microsoft.AspNetCore.Components/6.0.0": {
+      "sha512": "ETks/RMYyiC91P89jL9XNEwTeYlpyzt2+Z584v70h+B9//BO0cc68gAlhz3E0v/9h4NqCSHbTlopvMvj0qxnEg==",
       "type": "package",
-      "path": "microsoft.aspnetcore.components/5.0.0",
+      "path": "microsoft.aspnetcore.components/6.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "THIRD-PARTY-NOTICES.txt",
-        "lib/net5.0/Microsoft.AspNetCore.Components.dll",
-        "lib/net5.0/Microsoft.AspNetCore.Components.xml",
-        "microsoft.aspnetcore.components.5.0.0.nupkg.sha512",
+        "lib/net6.0/Microsoft.AspNetCore.Components.dll",
+        "lib/net6.0/Microsoft.AspNetCore.Components.xml",
+        "microsoft.aspnetcore.components.6.0.0.nupkg.sha512",
         "microsoft.aspnetcore.components.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Components.Analyzers/5.0.0": {
-      "sha512": "G5SP+2FO90d84XB90A1NBKJaDjhkhcv3kDumd7zughGt1tNQn92sCpBoRs51LT1M1Cp4w4cD/WHS8WB8t5ol9A==",
+    "Microsoft.AspNetCore.Components.Analyzers/6.0.0": {
+      "sha512": "2cpebhhUAJXYgvrePJNXzhJfM5u6MAIuu4Nho6LEjQliMtAQ6NcdtYxkezoFxqTrgT1fZR0CSYAxp7k41q6PVQ==",
       "type": "package",
-      "path": "microsoft.aspnetcore.components.analyzers/5.0.0",
+      "path": "microsoft.aspnetcore.components.analyzers/6.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -955,44 +955,44 @@
         "analyzers/dotnet/cs/Microsoft.AspNetCore.Components.Analyzers.dll",
         "build/netstandard2.0/Microsoft.AspNetCore.Components.Analyzers.targets",
         "buildTransitive/netstandard2.0/Microsoft.AspNetCore.Components.Analyzers.targets",
-        "microsoft.aspnetcore.components.analyzers.5.0.0.nupkg.sha512",
+        "microsoft.aspnetcore.components.analyzers.6.0.0.nupkg.sha512",
         "microsoft.aspnetcore.components.analyzers.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Components.Forms/5.0.0": {
-      "sha512": "6Xdql+Sbx7XM1XjNXx6iyEmlAujTM2GFgeOdzlHip3h6g/M3D/al+K945JuFQ5HlBUQv3SL0c6Okencad6nVmA==",
+    "Microsoft.AspNetCore.Components.Forms/6.0.0": {
+      "sha512": "POjep/9qy79PD/q/5Gai7Xsg6Oybmo10+bVsCkoTrfu1kAO8dWgbQgJWH8I/VMfOPZY/dPgfo+BitqEriWMuKQ==",
       "type": "package",
-      "path": "microsoft.aspnetcore.components.forms/5.0.0",
+      "path": "microsoft.aspnetcore.components.forms/6.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "THIRD-PARTY-NOTICES.txt",
-        "lib/net5.0/Microsoft.AspNetCore.Components.Forms.dll",
-        "lib/net5.0/Microsoft.AspNetCore.Components.Forms.xml",
-        "microsoft.aspnetcore.components.forms.5.0.0.nupkg.sha512",
+        "lib/net6.0/Microsoft.AspNetCore.Components.Forms.dll",
+        "lib/net6.0/Microsoft.AspNetCore.Components.Forms.xml",
+        "microsoft.aspnetcore.components.forms.6.0.0.nupkg.sha512",
         "microsoft.aspnetcore.components.forms.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Components.Web/5.0.0": {
-      "sha512": "TYnULwOuF43ITRlL02CmVoXLb1t1NSNbmUXuIrS4IMJd+HjK+sIisTRoJOr4L13LDWmOr1OM8teA04tOFf4I6w==",
+    "Microsoft.AspNetCore.Components.Web/6.0.0": {
+      "sha512": "EvTZEhXCqcIxEs01ScF0ts/CyMOzXQIFfcgwTeLae7dQV7WnPEFhqrlD+1l78lA/h+Uer1RvaRbkAScGE/0tyQ==",
       "type": "package",
-      "path": "microsoft.aspnetcore.components.web/5.0.0",
+      "path": "microsoft.aspnetcore.components.web/6.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "THIRD-PARTY-NOTICES.txt",
-        "lib/net5.0/Microsoft.AspNetCore.Components.Web.dll",
-        "lib/net5.0/Microsoft.AspNetCore.Components.Web.xml",
-        "microsoft.aspnetcore.components.web.5.0.0.nupkg.sha512",
+        "lib/net6.0/Microsoft.AspNetCore.Components.Web.dll",
+        "lib/net6.0/Microsoft.AspNetCore.Components.Web.xml",
+        "microsoft.aspnetcore.components.web.6.0.0.nupkg.sha512",
         "microsoft.aspnetcore.components.web.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Connections.Abstractions/6.0.7": {
-      "sha512": "OYZetO1Sn/33dmRsWfzJGsAtDoHWRndfi3Idyse0Qc6gKGh6rW8zhxM+mWm7JeFThAwG5X1RS0cqiFcIoKUT2g==",
+    "Microsoft.AspNetCore.Connections.Abstractions/6.0.8": {
+      "sha512": "52oY1j6SDxMRfhHEuEmOp18zRd9TNPvEXYLOi8Zv+TSk1QASWJtH/gxjJBZlZBaP59a0HHKHsu/rPjGP5FSx7Q==",
       "type": "package",
-      "path": "microsoft.aspnetcore.connections.abstractions/6.0.7",
+      "path": "microsoft.aspnetcore.connections.abstractions/6.0.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1006,14 +1006,14 @@
         "lib/netstandard2.0/Microsoft.AspNetCore.Connections.Abstractions.xml",
         "lib/netstandard2.1/Microsoft.AspNetCore.Connections.Abstractions.dll",
         "lib/netstandard2.1/Microsoft.AspNetCore.Connections.Abstractions.xml",
-        "microsoft.aspnetcore.connections.abstractions.6.0.7.nupkg.sha512",
+        "microsoft.aspnetcore.connections.abstractions.6.0.8.nupkg.sha512",
         "microsoft.aspnetcore.connections.abstractions.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Cryptography.Internal/6.0.6": {
-      "sha512": "hYAiGgU/ZiSZZxlS2UlHrXpxF4KAXTFHJdrnnbB4Tta9Vg+ioVjp9k7DRYIZ/WmIu+XMLFoBBuD6jVPF2Ryekw==",
+    "Microsoft.AspNetCore.Cryptography.Internal/6.0.8": {
+      "sha512": "W7IAX1zk131s1B4D/MdrOBVPD2+bUd+qHF6bGhzH47lilpDuo0wRLxzn8LKoGFsVwbMUJNfmWtxR3EXLLwbe/g==",
       "type": "package",
-      "path": "microsoft.aspnetcore.cryptography.internal/6.0.6",
+      "path": "microsoft.aspnetcore.cryptography.internal/6.0.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1025,14 +1025,14 @@
         "lib/net6.0/Microsoft.AspNetCore.Cryptography.Internal.xml",
         "lib/netstandard2.0/Microsoft.AspNetCore.Cryptography.Internal.dll",
         "lib/netstandard2.0/Microsoft.AspNetCore.Cryptography.Internal.xml",
-        "microsoft.aspnetcore.cryptography.internal.6.0.6.nupkg.sha512",
+        "microsoft.aspnetcore.cryptography.internal.6.0.8.nupkg.sha512",
         "microsoft.aspnetcore.cryptography.internal.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Cryptography.KeyDerivation/6.0.6": {
-      "sha512": "JPOwTUVhIrQ2cGJF6Ns7C7Knl/YkSky8JdXnCxJdWvuofewnYJXyhOM5qqCm3ji4Z2AOa0o+BrDZzCLSqimBpw==",
+    "Microsoft.AspNetCore.Cryptography.KeyDerivation/6.0.8": {
+      "sha512": "eDRPXA6l9iMiDjKlrKsMS9Up+7LSkVLyHY6FY8R1W1ej004ZA/roe9feQztS9e/VcI5F3p/00V/dvmjfr2ZOjQ==",
       "type": "package",
-      "path": "microsoft.aspnetcore.cryptography.keyderivation/6.0.6",
+      "path": "microsoft.aspnetcore.cryptography.keyderivation/6.0.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1044,14 +1044,14 @@
         "lib/net6.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.xml",
         "lib/netstandard2.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll",
         "lib/netstandard2.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.xml",
-        "microsoft.aspnetcore.cryptography.keyderivation.6.0.6.nupkg.sha512",
+        "microsoft.aspnetcore.cryptography.keyderivation.6.0.8.nupkg.sha512",
         "microsoft.aspnetcore.cryptography.keyderivation.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore/6.0.6": {
-      "sha512": "kXznF3FSjukLhrvDSCSU2rZCmgn2eJtFkKKUFWB57eQu3zatLqCJAKWQwjmtumMv6Uke0YBBuY7ecqF3T2YpbQ==",
+    "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore/6.0.8": {
+      "sha512": "uiwjIcA3EFQF20zLQCkI+sg6Na3b28QODr/aqILT5HnaqKYY/1NuxUKi24c3rIYbnok6iJzC7rs0Y9binZArww==",
       "type": "package",
-      "path": "microsoft.aspnetcore.diagnostics.entityframeworkcore/6.0.6",
+      "path": "microsoft.aspnetcore.diagnostics.entityframeworkcore/6.0.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1059,14 +1059,14 @@
         "THIRD-PARTY-NOTICES.TXT",
         "lib/net6.0/Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll",
         "lib/net6.0/Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.xml",
-        "microsoft.aspnetcore.diagnostics.entityframeworkcore.6.0.6.nupkg.sha512",
+        "microsoft.aspnetcore.diagnostics.entityframeworkcore.6.0.8.nupkg.sha512",
         "microsoft.aspnetcore.diagnostics.entityframeworkcore.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Http.Connections.Client/6.0.7": {
-      "sha512": "hfXIqNsmjgdffN5H9b8l0m+Jts4kXiVagi2JqGUrbagIWI50gjkvMmbGQ4d7WQRRwHVOqQ14psv7V94HNuJtXg==",
+    "Microsoft.AspNetCore.Http.Connections.Client/6.0.8": {
+      "sha512": "+UIAePWTwGOkQwzT7dfQkIpUIrq91Ts+cXy0cjQa+wHLEcAg5JFiK7n0nh9TS5oIrGqYZMKmsNJ/WhhmOes3UA==",
       "type": "package",
-      "path": "microsoft.aspnetcore.http.connections.client/6.0.7",
+      "path": "microsoft.aspnetcore.http.connections.client/6.0.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1080,14 +1080,14 @@
         "lib/netstandard2.0/Microsoft.AspNetCore.Http.Connections.Client.xml",
         "lib/netstandard2.1/Microsoft.AspNetCore.Http.Connections.Client.dll",
         "lib/netstandard2.1/Microsoft.AspNetCore.Http.Connections.Client.xml",
-        "microsoft.aspnetcore.http.connections.client.6.0.7.nupkg.sha512",
+        "microsoft.aspnetcore.http.connections.client.6.0.8.nupkg.sha512",
         "microsoft.aspnetcore.http.connections.client.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Http.Connections.Common/6.0.7": {
-      "sha512": "lnIaTb7AzjqjW4NzJyi0iD1sm9tyG55EwJfcE/GNB44FutQX6WkILTmGXBa4jZapDfd3btYCd9Vt8y62G2VYvA==",
+    "Microsoft.AspNetCore.Http.Connections.Common/6.0.8": {
+      "sha512": "EPAXap/yLr5xnUVF+u8xx0YbvNLwyTtVpOBbNrvn4x3Qxi8hLg3TSLpNXPF1+8Rw4fC46unI4+jOHhgqzztS5A==",
       "type": "package",
-      "path": "microsoft.aspnetcore.http.connections.common/6.0.7",
+      "path": "microsoft.aspnetcore.http.connections.common/6.0.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1099,14 +1099,14 @@
         "lib/net6.0/Microsoft.AspNetCore.Http.Connections.Common.xml",
         "lib/netstandard2.0/Microsoft.AspNetCore.Http.Connections.Common.dll",
         "lib/netstandard2.0/Microsoft.AspNetCore.Http.Connections.Common.xml",
-        "microsoft.aspnetcore.http.connections.common.6.0.7.nupkg.sha512",
+        "microsoft.aspnetcore.http.connections.common.6.0.8.nupkg.sha512",
         "microsoft.aspnetcore.http.connections.common.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Identity.EntityFrameworkCore/6.0.6": {
-      "sha512": "Af081JUsts14pD6sOHAwpkcVtyinIljYbwYeVzczr8GdYPF8xRkCSOJ43A4Scxu4XwtK12pO0RBqBRWSX8sc+Q==",
+    "Microsoft.AspNetCore.Identity.EntityFrameworkCore/6.0.8": {
+      "sha512": "caoSu3dk7hZKE6/l/4JSXzVEXKrqvRtqDxEO4c3KtJpK1gZzrVFYUamsakVxxp2JRv/w8n8Xm4b8w9OUCS1lQg==",
       "type": "package",
-      "path": "microsoft.aspnetcore.identity.entityframeworkcore/6.0.6",
+      "path": "microsoft.aspnetcore.identity.entityframeworkcore/6.0.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1114,14 +1114,14 @@
         "THIRD-PARTY-NOTICES.TXT",
         "lib/net6.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll",
         "lib/net6.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.xml",
-        "microsoft.aspnetcore.identity.entityframeworkcore.6.0.6.nupkg.sha512",
+        "microsoft.aspnetcore.identity.entityframeworkcore.6.0.8.nupkg.sha512",
         "microsoft.aspnetcore.identity.entityframeworkcore.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Identity.UI/6.0.6": {
-      "sha512": "2BXyU33e/ZF/TLanIgmAmTHiOGSXrMVVFpJ2who7RyaG/QQbpLLQk2mBG+U8KTO5qSLWAccstOkso6d0Q9Avtg==",
+    "Microsoft.AspNetCore.Identity.UI/6.0.8": {
+      "sha512": "z0/ek5qZYSAUf51DSjvYRysmVd6j64lOTv5uUgdDDVvctUFq4iKGD2oHCAKhiEWe40tnM4n/RPyZ1WSy73b7kQ==",
       "type": "package",
-      "path": "microsoft.aspnetcore.identity.ui/6.0.6",
+      "path": "microsoft.aspnetcore.identity.ui/6.0.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1136,7 +1136,7 @@
         "buildTransitive/Microsoft.AspNetCore.Identity.UI.targets",
         "lib/net6.0/Microsoft.AspNetCore.Identity.UI.dll",
         "lib/net6.0/Microsoft.AspNetCore.Identity.UI.xml",
-        "microsoft.aspnetcore.identity.ui.6.0.6.nupkg.sha512",
+        "microsoft.aspnetcore.identity.ui.6.0.8.nupkg.sha512",
         "microsoft.aspnetcore.identity.ui.nuspec",
         "staticwebassets/V4/css/site.css",
         "staticwebassets/V4/favicon.ico",
@@ -1236,10 +1236,10 @@
         "staticwebassets/V5/lib/jquery/dist/jquery.min.map"
       ]
     },
-    "Microsoft.AspNetCore.Metadata/5.0.0": {
-      "sha512": "Gr7YSfoYYnyiQ3+se9RjiZhj2h7I9uDn0ps1kPfxGqLbC8fzpfAzb3EPbHz0sBHtw8aBE0zyckZixmAMqHJnpA==",
+    "Microsoft.AspNetCore.Metadata/6.0.0": {
+      "sha512": "giBCvjANLIOqC+DJ84zCkCQnE4ebRTrgVyBe5e0gG3/F8GYzdqSSdtMSAvbOkBQsf0F8dySBPSM59vX6ksOeQg==",
       "type": "package",
-      "path": "microsoft.aspnetcore.metadata/5.0.0",
+      "path": "microsoft.aspnetcore.metadata/6.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1247,18 +1247,18 @@
         "THIRD-PARTY-NOTICES.TXT",
         "lib/net461/Microsoft.AspNetCore.Metadata.dll",
         "lib/net461/Microsoft.AspNetCore.Metadata.xml",
-        "lib/net5.0/Microsoft.AspNetCore.Metadata.dll",
-        "lib/net5.0/Microsoft.AspNetCore.Metadata.xml",
+        "lib/net6.0/Microsoft.AspNetCore.Metadata.dll",
+        "lib/net6.0/Microsoft.AspNetCore.Metadata.xml",
         "lib/netstandard2.0/Microsoft.AspNetCore.Metadata.dll",
         "lib/netstandard2.0/Microsoft.AspNetCore.Metadata.xml",
-        "microsoft.aspnetcore.metadata.5.0.0.nupkg.sha512",
+        "microsoft.aspnetcore.metadata.6.0.0.nupkg.sha512",
         "microsoft.aspnetcore.metadata.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.SignalR.Client/6.0.7": {
-      "sha512": "Wqa1OggHyNPQHlmQGtCkVQQTxeypHW/E4yTiB+BfpG+yQKmPZNeou0o6V42ylhT8kd5DoURyQQ/BVagh035oDQ==",
+    "Microsoft.AspNetCore.SignalR.Client/6.0.8": {
+      "sha512": "RXuLlp+2XesF2OPlvcp64RAP0G1TfIG6w0AHtikQVpJlCu6DcMmdcP06PKnu9zzYdz7SDh2GN0QYgtpUKpLZWQ==",
       "type": "package",
-      "path": "microsoft.aspnetcore.signalr.client/6.0.7",
+      "path": "microsoft.aspnetcore.signalr.client/6.0.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1270,14 +1270,14 @@
         "lib/net6.0/Microsoft.AspNetCore.SignalR.Client.xml",
         "lib/netstandard2.0/Microsoft.AspNetCore.SignalR.Client.dll",
         "lib/netstandard2.0/Microsoft.AspNetCore.SignalR.Client.xml",
-        "microsoft.aspnetcore.signalr.client.6.0.7.nupkg.sha512",
+        "microsoft.aspnetcore.signalr.client.6.0.8.nupkg.sha512",
         "microsoft.aspnetcore.signalr.client.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.SignalR.Client.Core/6.0.7": {
-      "sha512": "Dk0Im0/h3UXvTzZSIFbovA4IGLIjmfwJXizUswxuyFW8uMkbgpYAoxqtHTSDqP+xEZiA7GT+nFedJmTXFxKPAw==",
+    "Microsoft.AspNetCore.SignalR.Client.Core/6.0.8": {
+      "sha512": "iUePYF0NoFhXwb5Dc5xJCz2Lpzc4MoY1Qt7XQ73+2h1h4lKVgWGltbkMjvEFbakaLw3cwpFGyEPv4fdCwdW38w==",
       "type": "package",
-      "path": "microsoft.aspnetcore.signalr.client.core/6.0.7",
+      "path": "microsoft.aspnetcore.signalr.client.core/6.0.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1291,14 +1291,14 @@
         "lib/netstandard2.0/Microsoft.AspNetCore.SignalR.Client.Core.xml",
         "lib/netstandard2.1/Microsoft.AspNetCore.SignalR.Client.Core.dll",
         "lib/netstandard2.1/Microsoft.AspNetCore.SignalR.Client.Core.xml",
-        "microsoft.aspnetcore.signalr.client.core.6.0.7.nupkg.sha512",
+        "microsoft.aspnetcore.signalr.client.core.6.0.8.nupkg.sha512",
         "microsoft.aspnetcore.signalr.client.core.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.SignalR.Common/6.0.7": {
-      "sha512": "JzZdrFAh+weJ4G1MR1ME7p2axOjvhslt1LcfL/RKjejmgp36UW56syMaLHfvgTfZTJ3bEUSpWJYyF5TrA7yRxA==",
+    "Microsoft.AspNetCore.SignalR.Common/6.0.8": {
+      "sha512": "HmJFYsS4bUhVS/VR33oYhpxqas1vHqstkrDX3hzLAH4oIwPp45xcOY9psGZELSM2Au3EsmnnHJKoR3unBbRQcw==",
       "type": "package",
-      "path": "microsoft.aspnetcore.signalr.common/6.0.7",
+      "path": "microsoft.aspnetcore.signalr.common/6.0.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1310,14 +1310,14 @@
         "lib/net6.0/Microsoft.AspNetCore.SignalR.Common.xml",
         "lib/netstandard2.0/Microsoft.AspNetCore.SignalR.Common.dll",
         "lib/netstandard2.0/Microsoft.AspNetCore.SignalR.Common.xml",
-        "microsoft.aspnetcore.signalr.common.6.0.7.nupkg.sha512",
+        "microsoft.aspnetcore.signalr.common.6.0.8.nupkg.sha512",
         "microsoft.aspnetcore.signalr.common.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.SignalR.Protocols.Json/6.0.7": {
-      "sha512": "EWqUVck+CBdCXgcTCJxC8rriPp8xawk83JHUwMsVSvCrQaqkVMY3ExJ1lZ3Y2yibyL2YcRdE9AVv9A3uIQ3Xbg==",
+    "Microsoft.AspNetCore.SignalR.Protocols.Json/6.0.8": {
+      "sha512": "TdMsAQe3VYqOqDBwYVNSDThed4BRshCStaqx7JdSrOFIpQ3UJzIxRpHDFF2nibFVpGR5X2xXcnqZ2zCodfrdIw==",
       "type": "package",
-      "path": "microsoft.aspnetcore.signalr.protocols.json/6.0.7",
+      "path": "microsoft.aspnetcore.signalr.protocols.json/6.0.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1329,7 +1329,7 @@
         "lib/net6.0/Microsoft.AspNetCore.SignalR.Protocols.Json.xml",
         "lib/netstandard2.0/Microsoft.AspNetCore.SignalR.Protocols.Json.dll",
         "lib/netstandard2.0/Microsoft.AspNetCore.SignalR.Protocols.Json.xml",
-        "microsoft.aspnetcore.signalr.protocols.json.6.0.7.nupkg.sha512",
+        "microsoft.aspnetcore.signalr.protocols.json.6.0.8.nupkg.sha512",
         "microsoft.aspnetcore.signalr.protocols.json.nuspec"
       ]
     },
@@ -1402,10 +1402,10 @@
         "version.txt"
       ]
     },
-    "Microsoft.Data.Sqlite.Core/6.0.6": {
-      "sha512": "FGMTc3w380mXGBqygWtWIMJYwhckjZe6Ee0Eq9ClzspXuz87Ks8hey/f1g/gIUpV8/r0HirI2knhomcfuOMJrw==",
+    "Microsoft.Data.Sqlite.Core/6.0.8": {
+      "sha512": "ssJbtn9p7vXh3T4gi7g1Ir0bY4cJgVOU1MtTvnl4JvbLNmlq2q24SNK5jJHK/IPI37nhDqcPLHtfW40bscYU/Q==",
       "type": "package",
-      "path": "microsoft.data.sqlite.core/6.0.6",
+      "path": "microsoft.data.sqlite.core/6.0.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1414,14 +1414,14 @@
         "lib/net6.0/Microsoft.Data.Sqlite.xml",
         "lib/netstandard2.0/Microsoft.Data.Sqlite.dll",
         "lib/netstandard2.0/Microsoft.Data.Sqlite.xml",
-        "microsoft.data.sqlite.core.6.0.6.nupkg.sha512",
+        "microsoft.data.sqlite.core.6.0.8.nupkg.sha512",
         "microsoft.data.sqlite.core.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore/6.0.6": {
-      "sha512": "icy5aMdp9R984RGmbgZvcjEX9HYcwqF+6HXLFydL7PJBlc9eVVPRdBSFS9mCFwXyFl24x7xUORhZx/cSLvwH7Q==",
+    "Microsoft.EntityFrameworkCore/6.0.8": {
+      "sha512": "BDtUZEMjptfhldCvmaDYobVThQvgtcXEmVSGQGmpXDRYaxXuNb6CALJDG0+kTqHaqR+DgbjCKQc7ryi5dB3FGA==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore/6.0.6",
+      "path": "microsoft.entityframeworkcore/6.0.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1429,42 +1429,42 @@
         "buildTransitive/net6.0/Microsoft.EntityFrameworkCore.props",
         "lib/net6.0/Microsoft.EntityFrameworkCore.dll",
         "lib/net6.0/Microsoft.EntityFrameworkCore.xml",
-        "microsoft.entityframeworkcore.6.0.6.nupkg.sha512",
+        "microsoft.entityframeworkcore.6.0.8.nupkg.sha512",
         "microsoft.entityframeworkcore.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Abstractions/6.0.6": {
-      "sha512": "Z4Ep2LDUSSNjriin0wKH4jF4vsjQ2ICwC9/5ntDVShQqy1C8AmmE5oK25jfthEVSIosDhJoWCescV3xKa9kcpg==",
+    "Microsoft.EntityFrameworkCore.Abstractions/6.0.8": {
+      "sha512": "mZwjzgw9wGc8JPFUwKHe+8OW4gCi1v3jYhe9AhUU4+NW439rN3RnkFlZJ8WBq/yhRbXD3cYers4e+gprOBokew==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.abstractions/6.0.6",
+      "path": "microsoft.entityframeworkcore.abstractions/6.0.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "lib/net6.0/Microsoft.EntityFrameworkCore.Abstractions.dll",
         "lib/net6.0/Microsoft.EntityFrameworkCore.Abstractions.xml",
-        "microsoft.entityframeworkcore.abstractions.6.0.6.nupkg.sha512",
+        "microsoft.entityframeworkcore.abstractions.6.0.8.nupkg.sha512",
         "microsoft.entityframeworkcore.abstractions.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Analyzers/6.0.6": {
-      "sha512": "EqBhW1bJnDw42CIGf/Dh1TbYXFUh53pghb5KGMTrxcNU6Ntfd8UEHs7LntZrMQrECrkhW7zBvfGvv9SbxOj5VQ==",
+    "Microsoft.EntityFrameworkCore.Analyzers/6.0.8": {
+      "sha512": "gUdJEXpS60IGOlGELDsToGQj4cDr1uqlmlet0drUHUoHGE6O+z9oJlOekZQH7gVnaFDmaoO5HIdCT2KgRdXwPw==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.analyzers/6.0.6",
+      "path": "microsoft.entityframeworkcore.analyzers/6.0.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "analyzers/dotnet/cs/Microsoft.EntityFrameworkCore.Analyzers.dll",
         "lib/netstandard2.0/_._",
-        "microsoft.entityframeworkcore.analyzers.6.0.6.nupkg.sha512",
+        "microsoft.entityframeworkcore.analyzers.6.0.8.nupkg.sha512",
         "microsoft.entityframeworkcore.analyzers.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Design/6.0.6": {
-      "sha512": "QaQjHVsGxfbmUJQY2RCxfbsNJPmzZTeP4OciunxtBhfLQB7Gfc7OsGzoBmGkuvKkwzqh8j/RZB5Hnqiy70Jjxw==",
+    "Microsoft.EntityFrameworkCore.Design/6.0.8": {
+      "sha512": "yv3RGUVWP+UVmCrQiD0XGB7U1JandH+MeBrlLWMBvue01cJhFSBrzvtHr6jTNJaMTmoKiNIeK7uff6HesrfU4g==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.design/6.0.6",
+      "path": "microsoft.entityframeworkcore.design/6.0.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1472,62 +1472,62 @@
         "build/net6.0/Microsoft.EntityFrameworkCore.Design.props",
         "lib/net6.0/Microsoft.EntityFrameworkCore.Design.dll",
         "lib/net6.0/Microsoft.EntityFrameworkCore.Design.xml",
-        "microsoft.entityframeworkcore.design.6.0.6.nupkg.sha512",
+        "microsoft.entityframeworkcore.design.6.0.8.nupkg.sha512",
         "microsoft.entityframeworkcore.design.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Relational/6.0.6": {
-      "sha512": "sMFh4InretduD2ppxRJ9aArwDgg1EqUMp8iXaMoXn64eGW+8hyvuZGD3VdwJF6qQJWd4B6ns1/zkASR7MHOF2g==",
+    "Microsoft.EntityFrameworkCore.Relational/6.0.8": {
+      "sha512": "laj1Kx0Ifny8E7dCCXV4+hYJkly8t9Gjc6/Trds1W4xg/vf/dzyuxTCUqQMHtGv29C8zV1+C2wnWVOcwWin5FQ==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.relational/6.0.6",
+      "path": "microsoft.entityframeworkcore.relational/6.0.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "lib/net6.0/Microsoft.EntityFrameworkCore.Relational.dll",
         "lib/net6.0/Microsoft.EntityFrameworkCore.Relational.xml",
-        "microsoft.entityframeworkcore.relational.6.0.6.nupkg.sha512",
+        "microsoft.entityframeworkcore.relational.6.0.8.nupkg.sha512",
         "microsoft.entityframeworkcore.relational.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Sqlite/6.0.6": {
-      "sha512": "059YKPRXJMUwaRbJAkJ15NB2tMmBRR8kYdimPSC4u3XyZajioCn2x37uKwF+iVXaBGnux2Ic5c8iQ3ltEQutng==",
+    "Microsoft.EntityFrameworkCore.Sqlite/6.0.8": {
+      "sha512": "SCDjo2xtsL/7h1ugbHR7kOrSsBNcoGvyeuyfAIQ1yWJh5pRYOj/EOV8vTkzXY6LylnbL+hH1+ZPlV3e1cakiuw==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.sqlite/6.0.6",
+      "path": "microsoft.entityframeworkcore.sqlite/6.0.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "lib/net6.0/_._",
-        "microsoft.entityframeworkcore.sqlite.6.0.6.nupkg.sha512",
+        "microsoft.entityframeworkcore.sqlite.6.0.8.nupkg.sha512",
         "microsoft.entityframeworkcore.sqlite.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Sqlite.Core/6.0.6": {
-      "sha512": "+bAsYKPUZSM1zj1tNSnMqXckyjFmRCLCkqufwkjr3oAZmP+CKAURovbYr/Th26XOcEMgHx6CqsJ2VFyPweALvg==",
+    "Microsoft.EntityFrameworkCore.Sqlite.Core/6.0.8": {
+      "sha512": "RBFMQt4VJqRj4jOFJ7N36f4z3PtoItWav6p3iAbgDoAwTTT2iKTQ6AVqtuCLKk4Mdqn0dDxUufiuZFoocHpKrw==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.sqlite.core/6.0.6",
+      "path": "microsoft.entityframeworkcore.sqlite.core/6.0.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "lib/net6.0/Microsoft.EntityFrameworkCore.Sqlite.dll",
         "lib/net6.0/Microsoft.EntityFrameworkCore.Sqlite.xml",
-        "microsoft.entityframeworkcore.sqlite.core.6.0.6.nupkg.sha512",
+        "microsoft.entityframeworkcore.sqlite.core.6.0.8.nupkg.sha512",
         "microsoft.entityframeworkcore.sqlite.core.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Tools/6.0.6": {
-      "sha512": "JJRHejJF7mvg6tQo5snl0C7vwotnevcSW2As2swh8OttBkTGWV5KkETWdUnq+qNck9C8IDdNPOOsOjdizvIT+g==",
+    "Microsoft.EntityFrameworkCore.Tools/6.0.8": {
+      "sha512": "+wjKy16Vdz/ArHFvJZ1xXG241OZMFbTY0lS8vTQL4tfo8slX/h1J9PkzbWJjG6G7SMharUwvigIo+vrMO628Xg==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.tools/6.0.6",
+      "path": "microsoft.entityframeworkcore.tools/6.0.8",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "lib/net6.0/_._",
-        "microsoft.entityframeworkcore.tools.6.0.6.nupkg.sha512",
+        "microsoft.entityframeworkcore.tools.6.0.8.nupkg.sha512",
         "microsoft.entityframeworkcore.tools.nuspec",
         "tools/EntityFrameworkCore.PS2.psd1",
         "tools/EntityFrameworkCore.PS2.psm1",
@@ -1536,6 +1536,7 @@
         "tools/about_EntityFrameworkCore.help.txt",
         "tools/init.ps1",
         "tools/net461/any/ef.exe",
+        "tools/net461/win-arm64/ef.exe",
         "tools/net461/win-x86/ef.exe",
         "tools/netcoreapp2.0/any/ef.dll",
         "tools/netcoreapp2.0/any/ef.runtimeconfig.json"
@@ -1667,10 +1668,10 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.Extensions.Features/6.0.7": {
-      "sha512": "PkRyg0dugUaolfS7jdLeEVeV8ZdfiejpMOuSxM0F0HmeCcPYmtmewVPESAkt3BPN8NN5yOU8FaQr5XpkR3VNGg==",
+    "Microsoft.Extensions.Features/6.0.8": {
+      "sha512": "GhFzEG4TH/1BnTP3DuQ5kfdCIQeLXVR3bPqMkfs5kL1D+X6wCw/yKodW2kdm3drv7f2cFw0WoRpueKTWOnunjg==",
       "type": "package",
-      "path": "microsoft.extensions.features/6.0.7",
+      "path": "microsoft.extensions.features/6.0.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1682,7 +1683,7 @@
         "lib/net6.0/Microsoft.Extensions.Features.xml",
         "lib/netstandard2.0/Microsoft.Extensions.Features.dll",
         "lib/netstandard2.0/Microsoft.Extensions.Features.xml",
-        "microsoft.extensions.features.6.0.7.nupkg.sha512",
+        "microsoft.extensions.features.6.0.8.nupkg.sha512",
         "microsoft.extensions.features.nuspec"
       ]
     },
@@ -1709,10 +1710,10 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.Extensions.FileProviders.Embedded/6.0.6": {
-      "sha512": "Ll3hVvqk35v1kBWuxX5MkZTwjofAwZfc+BpPcKbIaXWc1o7rB8LpBLqg+bNAvuHccnVXc8u8sq2tsIAGvND8yA==",
+    "Microsoft.Extensions.FileProviders.Embedded/6.0.8": {
+      "sha512": "zvo02Hq4wHBBGOTUMPY0bQ9vn7KBIOBGEm91fD1kcjThRwbJiv1lVDlhcYhveou5JmAze7+SJzSlmb2iL4+3Tw==",
       "type": "package",
-      "path": "microsoft.extensions.fileproviders.embedded/6.0.6",
+      "path": "microsoft.extensions.fileproviders.embedded/6.0.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1727,15 +1728,15 @@
         "lib/net6.0/Microsoft.Extensions.FileProviders.Embedded.xml",
         "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Embedded.dll",
         "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Embedded.xml",
-        "microsoft.extensions.fileproviders.embedded.6.0.6.nupkg.sha512",
+        "microsoft.extensions.fileproviders.embedded.6.0.8.nupkg.sha512",
         "microsoft.extensions.fileproviders.embedded.nuspec",
         "tasks/netstandard2.0/Microsoft.Extensions.FileProviders.Embedded.Manifest.Task.dll"
       ]
     },
-    "Microsoft.Extensions.Identity.Core/6.0.6": {
-      "sha512": "iHXKzAeyMVWOsUnIBXE/XICdBZj0NXC4y3u0Kc0dPp3hHcoivB83/Q8piRbohr54nBBhBQCmTS3xlIXr/b4U5g==",
+    "Microsoft.Extensions.Identity.Core/6.0.8": {
+      "sha512": "eX1vkbMLahI0hXmncrZL7UB+2tlrFgL0CuAuz6cjDlvytD3/CEdNe3CJj7FjL7130fWSypnzE5WIIgziyqQFHQ==",
       "type": "package",
-      "path": "microsoft.extensions.identity.core/6.0.6",
+      "path": "microsoft.extensions.identity.core/6.0.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1747,14 +1748,14 @@
         "lib/net6.0/Microsoft.Extensions.Identity.Core.xml",
         "lib/netstandard2.0/Microsoft.Extensions.Identity.Core.dll",
         "lib/netstandard2.0/Microsoft.Extensions.Identity.Core.xml",
-        "microsoft.extensions.identity.core.6.0.6.nupkg.sha512",
+        "microsoft.extensions.identity.core.6.0.8.nupkg.sha512",
         "microsoft.extensions.identity.core.nuspec"
       ]
     },
-    "Microsoft.Extensions.Identity.Stores/6.0.6": {
-      "sha512": "qmvaystO5s+qGwq65kGAVbkuaSlXw2UEXVBzqT3QmRr73mCZRtKeJ1WPuoWl5Z54NQsH/Xr+/d5P4DqDawETLQ==",
+    "Microsoft.Extensions.Identity.Stores/6.0.8": {
+      "sha512": "rvSqpHdPDYEns6qjfaG+6GqnrVYFICVbcuC1vJSVSW9DyxhfKdn0mD/sp1ZRp41x5au6iRr5c4Cm5CTP8I8grA==",
       "type": "package",
-      "path": "microsoft.extensions.identity.stores/6.0.6",
+      "path": "microsoft.extensions.identity.stores/6.0.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1766,7 +1767,7 @@
         "lib/net6.0/Microsoft.Extensions.Identity.Stores.xml",
         "lib/netstandard2.0/Microsoft.Extensions.Identity.Stores.dll",
         "lib/netstandard2.0/Microsoft.Extensions.Identity.Stores.xml",
-        "microsoft.extensions.identity.stores.6.0.6.nupkg.sha512",
+        "microsoft.extensions.identity.stores.6.0.8.nupkg.sha512",
         "microsoft.extensions.identity.stores.nuspec"
       ]
     },
@@ -1889,25 +1890,25 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.JSInterop/5.0.0": {
-      "sha512": "qhLTZMoOsAbDWwE7M+VbjxH3EuP654tclaOhi6Sf7Xh6bj6TXDO0GiNQeNPdebMClKMGELJezOwbFp1BFB+9Ug==",
+    "Microsoft.JSInterop/6.0.0": {
+      "sha512": "M7NyTgOY0vhozRtppvxUDJblgPWBUg6ioJ2vpaKpXVYILB0No8Vrv4HPis+ig5BzaOWd3PR9D3oTovYKGBt3mw==",
       "type": "package",
-      "path": "microsoft.jsinterop/5.0.0",
+      "path": "microsoft.jsinterop/6.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "THIRD-PARTY-NOTICES.TXT",
-        "lib/net5.0/Microsoft.JSInterop.dll",
-        "lib/net5.0/Microsoft.JSInterop.xml",
-        "microsoft.jsinterop.5.0.0.nupkg.sha512",
+        "lib/net6.0/Microsoft.JSInterop.dll",
+        "lib/net6.0/Microsoft.JSInterop.xml",
+        "microsoft.jsinterop.6.0.0.nupkg.sha512",
         "microsoft.jsinterop.nuspec"
       ]
     },
-    "Radzen.Blazor/3.19.2": {
-      "sha512": "rSpBikvmYkkfSysVGW52t0yd1b4OiQaQl3vSLuja+cVoRJzTb8j1G2cWjY75QeibPrThKrgVSxZsfDAX0EWYxw==",
+    "Radzen.Blazor/3.20.9": {
+      "sha512": "KIds2UfSM63c1XBI4UJarAeFFWRZwHULFUjTI1vmv+i9NzoPvVQ8VWk4fd7n3jZQMrDSOucUKWktjUF+R1o0CA==",
       "type": "package",
-      "path": "radzen.blazor/3.19.2",
+      "path": "radzen.blazor/3.20.9",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1919,9 +1920,11 @@
         "icon.png",
         "lib/net5.0/Radzen.Blazor.dll",
         "lib/net5.0/Radzen.Blazor.xml",
+        "lib/net6.0/Radzen.Blazor.dll",
+        "lib/net6.0/Radzen.Blazor.xml",
         "lib/netstandard2.1/Radzen.Blazor.dll",
         "lib/netstandard2.1/Radzen.Blazor.xml",
-        "radzen.blazor.3.19.2.nupkg.sha512",
+        "radzen.blazor.3.20.9.nupkg.sha512",
         "radzen.blazor.nuspec",
         "staticwebassets/Radzen.Blazor.js",
         "staticwebassets/css/dark-base.css",
@@ -2331,13 +2334,13 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 6.0.6",
-      "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 6.0.6",
-      "Microsoft.AspNetCore.Identity.UI >= 6.0.6",
-      "Microsoft.AspNetCore.SignalR.Client >= 6.0.7",
-      "Microsoft.EntityFrameworkCore.Sqlite >= 6.0.6",
-      "Microsoft.EntityFrameworkCore.Tools >= 6.0.6",
-      "Radzen.Blazor >= 3.19.2"
+      "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 6.0.8",
+      "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 6.0.8",
+      "Microsoft.AspNetCore.Identity.UI >= 6.0.8",
+      "Microsoft.AspNetCore.SignalR.Client >= 6.0.8",
+      "Microsoft.EntityFrameworkCore.Sqlite >= 6.0.8",
+      "Microsoft.EntityFrameworkCore.Tools >= 6.0.8",
+      "Radzen.Blazor >= 3.20.9"
     ]
   },
   "packageFolders": {
@@ -2379,31 +2382,33 @@
         "dependencies": {
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
             "target": "Package",
-            "version": "[6.0.6, )"
+            "version": "[6.0.8, )"
           },
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
             "target": "Package",
-            "version": "[6.0.6, )"
+            "version": "[6.0.8, )"
           },
           "Microsoft.AspNetCore.Identity.UI": {
             "target": "Package",
-            "version": "[6.0.6, )"
+            "version": "[6.0.8, )"
           },
           "Microsoft.AspNetCore.SignalR.Client": {
             "target": "Package",
-            "version": "[6.0.7, )"
+            "version": "[6.0.8, )"
           },
           "Microsoft.EntityFrameworkCore.Sqlite": {
             "target": "Package",
-            "version": "[6.0.6, )"
+            "version": "[6.0.8, )"
           },
           "Microsoft.EntityFrameworkCore.Tools": {
+            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+            "suppressParent": "All",
             "target": "Package",
-            "version": "[6.0.6, )"
+            "version": "[6.0.8, )"
           },
           "Radzen.Blazor": {
             "target": "Package",
-            "version": "[3.19.2, )"
+            "version": "[3.20.9, )"
           }
         },
         "imports": [
