@@ -117,7 +117,6 @@ namespace happygames.Hubs
                         await Clients.Caller.SendAsync("OnNotification", NotificationSeverity.Error, (Context.Items["player"] as Player)!.getUsername(), "Le pion ne pourra pas bouger ou ce n'est pas ton pion");
                     }
                 }
-                Console.WriteLine(groups[guid].stopGame());
             }
             else
             {

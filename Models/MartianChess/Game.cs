@@ -91,13 +91,10 @@ namespace happygames.Models.MartianChess
             {
                 for (int x = coordOriginX - 1; x <= coordOriginX + 1; x++)
                 {
-                    Console.WriteLine($"x : {coordOriginX} = {x}, y : {coordOriginY} = {y}");
                     if (x >= 0 && x < board.getHorizontalSize() && y >= 0 && y < board.getVerticalSize() && (coordOriginX != x || coordOriginY != y))
                     {
-                        Console.WriteLine("ok");
                         if (board.getBoxes()[y, x].getPawn() == null)
                         {
-                            Console.WriteLine("null");
                             try
                             {
                                 board.getBoxes()[coordOriginY, coordOriginX].getPawn()!.getDisplacement(new Displacement(new Coordinate(coordOriginX, coordOriginY), new Coordinate(x, y)));
@@ -196,7 +193,6 @@ namespace happygames.Models.MartianChess
                     }
                 }
             }
-            Console.WriteLine($"Player 1 : {pawnPlayer1}, Player 2 : {pawnPlayer2}");
             if (pawnPlayer1 <= 0 || pawnPlayer2 <= 0 || nswg >= mnswg)
             {
                 return true;
