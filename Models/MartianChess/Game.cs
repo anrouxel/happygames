@@ -56,6 +56,10 @@ namespace happygames.Models.MartianChess
             board = new Board();
             board.initialize();
             currentPlayer = players[0];
+            backPawn = null;
+            isDisplace = false;
+            originCoordinate = null;
+            destinationCoordinate = null;
             for (int y = 0; y < board.getVerticalSize() / 2; y++)
             {
                 for (int x = 0; x < board.getHorizontalSize(); x++)
@@ -88,7 +92,7 @@ namespace happygames.Models.MartianChess
                 for (int x = coordOriginX - 1; x <= coordOriginX + 1; x++)
                 {
                     Console.WriteLine($"x : {coordOriginX} = {x}, y : {coordOriginY} = {y}");
-                    if (x >= 0 && x < board.getHorizontalSize() && y >= 0 && y < board.getVerticalSize() && coordOriginX != x && coordOriginY != y)
+                    if (x >= 0 && x < board.getHorizontalSize() && y >= 0 && y < board.getVerticalSize() && (coordOriginX != x || coordOriginY != y))
                     {
                         Console.WriteLine("ok");
                         if (board.getBoxes()[y, x].getPawn() == null)
@@ -113,7 +117,7 @@ namespace happygames.Models.MartianChess
             {
                 if (coordOriginX >= 0 && coordOriginX < board.getHorizontalSize() && coordDestinationX >= 0 && coordDestinationX < board.getHorizontalSize() && coordOriginY >= 0 && coordOriginY < board.getVerticalSize() && coordDestinationY >= 0 && coordDestinationY < board.getVerticalSize())
                 {
-                    if (player == board.getBoxes()[coordOriginY, coordOriginX].getPlayer() && board.getBoxes()[coordOriginY, coordOriginX].getPawn() is Pawn && board.getBoxes()[coordOriginY, coordOriginX].getPawn() != backPawn)
+                    if (player == board.getBoxes()[coordOriginY, coordOriginX].getPlayer() && board.getBoxes()[coordOriginY, coordOriginX].getPawn() is Pawn && (board.getBoxes()[coordOriginY, coordOriginX].getPawn() != backPawn || player == board.getBoxes()[coordDestinationY, coordDestinationX].getPlayer()))
                     {
                         List<Coordinate>? displacement = null;
                         try
@@ -123,7 +127,7 @@ namespace happygames.Models.MartianChess
                             {
                                 if (board.getBoxes()[displacement[i].getY(), displacement[i].getX()].getPawn() is Pawn)
                                 {
-                                    return false;
+                                    throw new DisplacementException("Il y a pion sur ton chemin");
                                 }
                             }
                             if (board.getBoxes()[displacement.Last().getY(), displacement.Last().getX()].getPlayer() == player && board.getBoxes()[displacement.Last().getY(), displacement.Last().getX()].getPawn() is Pawn)
@@ -132,16 +136,11 @@ namespace happygames.Models.MartianChess
                             }
                             return true;
                         }
-                        catch (DisplacementException e)
-                        {
-                            throw new DisplacementException(e.Message);
-                        }
+                        catch (DisplacementException) { }
                     }
-                    throw new DisplacementException("Ce ne sont pas tes cases ou tu as sélectioné une case vide pour le départ ou tu n'as pas le droit de renvoyer ce pion à l'adversaire.");
                 }
-                throw new DisplacementException("Déplacement impossible x ou y sort du plateau");
             }
-            throw new DisplacementException("Ce n'est pas à ton tour de jouer.");
+            return false;
         }
 
         public void displace(int coordOriginX, int coordOriginY, int coordDestinationX, int coordDestinationY, Player? player)

@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Authorization;
 using happygames.Models.MartianChess;
 using happygames.Data.MartianChess;
 using Radzen;
-using Radzen.Blazor;
 
 namespace happygames.Hubs
 {
@@ -78,13 +77,12 @@ namespace happygames.Hubs
             {
                 if (groups[guid].getIsDisplace() == true)
                 {
-                    try
+                    groups[guid].setCoordDestinationDisplacement(coordinate);
+                    if (groups[guid].possibleDisplacement(groups[guid].getCoordOriginDisplacement().getX(), groups[guid].getCoordOriginDisplacement().getY(), groups[guid].getCoordDestinationDisplacement().getX(), groups[guid].getCoordDestinationDisplacement().getY(), (Context.Items["player"] as Player)))
                     {
-                        groups[guid].setCoordDestinationDisplacement(coordinate);
                         groups[guid].displace(groups[guid].getCoordOriginDisplacement().getX(), groups[guid].getCoordOriginDisplacement().getY(),
                         groups[guid].getCoordDestinationDisplacement().getX(), groups[guid].getCoordDestinationDisplacement().getY(), (Context.Items["player"] as Player));
                         groups[guid].changePlayer();
-                        await OnBoard();
                         if (groups[guid].stopGame())
                         {
                             await Clients.Group(guid).SendAsync("OnNotification", NotificationSeverity.Success, "Fin de la partie", $"Le vainqueur est {groups[guid].winnerPlayer()}.");
@@ -94,22 +92,29 @@ namespace happygames.Hubs
                             await OnCurrentPlayer();
                         }
                     }
-                    catch (DisplacementException e)
-                    {
-                        await Clients.Caller.SendAsync("OnNotification", NotificationSeverity.Error, (Context.Items["player"] as Player)!.getUsername(), e.Message);
-                    }
+                    await OnBoard();
                     groups[guid].setIsDisplace(false);
                 }
                 else
                 {
-                    if (groups[guid].possibleDisplacement(coordinate.getX(), coordinate.getY()))
+                    if (groups[guid].possibleDisplacement(coordinate.getX(), coordinate.getY()) && groups[guid].getBoard().getBoxes()[coordinate.getY(), coordinate.getX()].getPlayer() == (Context.Items["player"] as Player))
                     {
                         groups[guid].setCoordOriginDisplacement(coordinate);
                         groups[guid].setIsDisplace(true);
+                        BoardData board = groups[guid].getBoard().Clone();
+                        for (int y = 0; y < board.verticalSize; y++)
+                        {
+                            for (int x = 0; x < board.horizontalSize; x++)
+                            {
+                                board.boxes[y][x].isPossibleDisplace = groups[guid].possibleDisplacement(groups[guid].getCoordOriginDisplacement().getX(), groups[guid].getCoordOriginDisplacement().getY(), x, y, (Context.Items["player"] as Player));
+                            }
+                        }
+                        board.boxes[coordinate.getY()][coordinate.getX()].isPossibleDisplace = true;
+                        await Clients.Caller.SendAsync("OnBoard", board);
                     }
                     else
                     {
-                        await Clients.Caller.SendAsync("OnNotification", NotificationSeverity.Error, (Context.Items["player"] as Player)!.getUsername(), "Le pion ne pourra pas bouger");
+                        await Clients.Caller.SendAsync("OnNotification", NotificationSeverity.Error, (Context.Items["player"] as Player)!.getUsername(), "Le pion ne pourra pas bouger ou ce n'est pas ton pion");
                     }
                 }
                 Console.WriteLine(groups[guid].stopGame());

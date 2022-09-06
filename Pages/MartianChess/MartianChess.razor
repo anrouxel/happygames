@@ -19,9 +19,10 @@
                     {
                         pawn = board.boxes[y][x].pawn!.pawn;
                     }
+                    bool isPossibleDisplace = !board.boxes[y][x].isPossibleDisplace;
                     CoordinateData coordinate = new CoordinateData(x, y);
                     <RadzenButton Style="height: 5rem; width: 5rem; border-radius: 0%;" Text=@pawn
-            Click="() => displace(coordinate)" ButtonStyle="ButtonStyle.Secondary" />
+            Click="() => displace(coordinate)" ButtonStyle="ButtonStyle.Secondary" Disabled=@isPossibleDisplace />
                 }
             </div>
         }
