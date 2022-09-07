@@ -144,9 +144,12 @@ namespace happygames.Models.MartianChess
         {
             if (possibleDisplacement(coordOriginX, coordOriginY, coordDestinationX, coordDestinationY, player))
             {
-                if (board.getBoxes()[coordOriginY, coordOriginX].getPawn() == null)
+                if (board.getBoxes()[coordDestinationY, coordDestinationX].getPawn() == null)
                 {
                     nswg += 1;
+                } else
+                {
+                    currentPlayer?.addCapturedPawn(board.getBoxes()[coordDestinationY, coordDestinationX].getPawn()!);
                 }
                 backPawn = board.getBoxes()[coordOriginY, coordOriginX].getPawn();
                 board.getBoxes()[coordDestinationY, coordDestinationX].setPawn(board.getBoxes()[coordOriginY, coordOriginX].getPawn()!);

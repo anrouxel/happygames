@@ -93,6 +93,7 @@ namespace happygames.Hubs
                         }
                     }
                     await OnBoard();
+                    Console.WriteLine($"{(Context.Items["player"] as Player)!.getScore()}");
                     groups[guid].setIsDisplace(false);
                 }
                 else
