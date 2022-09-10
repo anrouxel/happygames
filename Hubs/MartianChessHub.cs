@@ -7,7 +7,7 @@ using Radzen;
 
 namespace happygames.Hubs
 {
-    // [Authorize]
+    [Authorize]
     public class MartianChessHub : Hub
     {
         public const string HubUrl = "/martianchesshub";
@@ -15,7 +15,7 @@ namespace happygames.Hubs
 
         public override async Task OnConnectedAsync()
         {
-            Console.WriteLine($"{Context.UserIdentifier} connected");
+            Console.WriteLine($"{Context.User?.Identity?.IsAuthenticated} connected");
             string guid;
             if (groups.Where(item => !item.Value.isPlayerCompleted()).Count() != 0)
             {
