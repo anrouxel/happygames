@@ -15,7 +15,7 @@ namespace happygames.Models.MartianChess
 
         public CoordinateData Clone()
         {
-            return new CoordinateData(x, y);
+            return new CoordinateData { x = x, y = y };
         }
 
         public int getX()

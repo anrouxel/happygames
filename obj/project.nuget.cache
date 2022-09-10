@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "JtgNgI5epVa8UhcfEjI4JgKVeizMlyf8affCi0JGjkiJkmK0wZGCl3Y1sIbkMncFBhli2cEuxvrObLjT9RCRRQ==",
+  "dgSpecHash": "DpuMLJXiim9sG1fPM49nI9+0jWMSMQfpaGFMq9gnWKmVNhmVmjj2jj/OF4WKEb5tkDIYXQNYmFy/EoHhzH107A==",
   "success": true,
   "projectFilePath": "C:\\Users\\anton\\Documents\\Github\\happygames\\happygames.csproj",
   "expectedPackageFiles": [
@@ -50,6 +50,8 @@
     "C:\\Users\\anton\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
     "C:\\Users\\anton\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
     "C:\\Users\\anton\\.nuget\\packages\\microsoft.jsinterop\\6.0.0\\microsoft.jsinterop.6.0.0.nupkg.sha512",
+    "C:\\Users\\anton\\.nuget\\packages\\npgsql\\6.0.6\\npgsql.6.0.6.nupkg.sha512",
+    "C:\\Users\\anton\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\6.0.6\\npgsql.entityframeworkcore.postgresql.6.0.6.nupkg.sha512",
     "C:\\Users\\anton\\.nuget\\packages\\radzen.blazor\\3.20.9\\radzen.blazor.3.20.9.nupkg.sha512",
     "C:\\Users\\anton\\.nuget\\packages\\sqlitepclraw.bundle_e_sqlite3\\2.0.6\\sqlitepclraw.bundle_e_sqlite3.2.0.6.nupkg.sha512",
     "C:\\Users\\anton\\.nuget\\packages\\sqlitepclraw.core\\2.0.6\\sqlitepclraw.core.2.0.6.nupkg.sha512",

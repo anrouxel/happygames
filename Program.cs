@@ -9,13 +9,20 @@ using happygames.Data;
 using happygames.Hubs;
 using Microsoft.AspNetCore.ResponseCompression;
 using Radzen;
+using Npgsql;
 
 var builder = WebApplication.CreateBuilder(args);
 
+var connection = new NpgsqlConnectionStringBuilder();
+connection.Host = "localhost";
+connection.Port = 5432;
+connection.Database = "happygames";
+connection.Username = "happygames";
+connection.Password = "happygames";
+
 // Add services to the container.
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlite(connectionString));
+    options.UseNpgsql(connection.ConnectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();

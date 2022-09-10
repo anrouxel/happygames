@@ -21,7 +21,7 @@ namespace happygames.Models.MartianChess
             {
                 playersData[i] = players[i]!.Clone();
             }
-            return new GameData(nswg, mnswg, originCoordinate!.Clone(), destinationCoordinate!.Clone(), playersData, currentPlayer!.Clone(), board.Clone(), backPawn!.Clone(), isDisplace);
+            return new GameData { nswg = nswg, mnswg = mnswg, originCoordinate = originCoordinate!.Clone(), destinationCoordinate = destinationCoordinate!.Clone(), players = playersData, currentPlayer = currentPlayer!.Clone(), board = board.Clone(), backPawn = backPawn!.Clone(), isDisplace = isDisplace };
         }
 
         public Coordinate getCoordOriginDisplacement()
@@ -147,7 +147,8 @@ namespace happygames.Models.MartianChess
                 if (board.getBoxes()[coordDestinationY, coordDestinationX].getPawn() == null)
                 {
                     nswg += 1;
-                } else
+                }
+                else
                 {
                     currentPlayer?.addCapturedPawn(board.getBoxes()[coordDestinationY, coordDestinationX].getPawn()!);
                 }

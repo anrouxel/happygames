@@ -15,12 +15,12 @@
                 @for (int x = 0; x < board.horizontalSize; x++)
                 {
                     string pawn = "";
-                    if (board.boxes[y][x].pawn != null)
+                    if (board.boxes![y][x].pawn != null)
                     {
-                        pawn = board.boxes[y][x].pawn!.pawn;
+                        pawn = board.boxes[y][x].pawn!.pawn!;
                     }
                     bool isPossibleDisplace = !board.boxes[y][x].isPossibleDisplace;
-                    CoordinateData coordinate = new CoordinateData(x, y);
+                    CoordinateData coordinate = new CoordinateData{x = x, y = y};
                     <RadzenButton Style="height: 5rem; width: 5rem; border-radius: 0%;" Text=@pawn
             Click="() => displace(coordinate)" ButtonStyle="ButtonStyle.Secondary" Disabled=@isPossibleDisplace />
                 }

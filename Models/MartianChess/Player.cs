@@ -22,7 +22,7 @@ namespace happygames.Models.MartianChess
             {
                 capturedPawnsData.Add(item.Clone());
             }
-            return new PlayerData(username, connectionId, capturedPawnsData);
+            return new PlayerData { username = username, connectionId = connectionId, capturedPawns = capturedPawnsData };
         }
 
         public List<Pawn> getCapturedPawns()

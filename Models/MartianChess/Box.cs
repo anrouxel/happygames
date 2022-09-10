@@ -19,7 +19,7 @@ namespace happygames.Models.MartianChess
             {
                 pawnData = pawn.Clone();
             }
-            return new BoxData(playerData, pawnData, true);
+            return new BoxData { player = playerData, pawn = pawnData, isPossibleDisplace = true };
         }
 
         public bool isEmpty()

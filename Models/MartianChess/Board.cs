@@ -27,7 +27,7 @@ namespace happygames.Models.MartianChess
                     boxesData[y][x] = boxes[y, x].Clone();
                 }
             }
-            return new BoardData(boxesData, horizontalSize, verticalSize);
+            return new BoardData { boxes = boxesData, horizontalSize = horizontalSize, verticalSize = verticalSize };
         }
 
         public void initialize()

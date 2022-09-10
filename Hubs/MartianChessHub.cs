@@ -107,10 +107,10 @@ namespace happygames.Hubs
                         {
                             for (int x = 0; x < board.horizontalSize; x++)
                             {
-                                board.boxes[y][x].isPossibleDisplace = groups[guid].possibleDisplacement(groups[guid].getCoordOriginDisplacement().getX(), groups[guid].getCoordOriginDisplacement().getY(), x, y, (Context.Items["player"] as Player));
+                                board.boxes![y][x].isPossibleDisplace = groups[guid].possibleDisplacement(groups[guid].getCoordOriginDisplacement().getX(), groups[guid].getCoordOriginDisplacement().getY(), x, y, (Context.Items["player"] as Player));
                             }
                         }
-                        board.boxes[coordinate.getY()][coordinate.getX()].isPossibleDisplace = true;
+                        board.boxes![coordinate.getY()][coordinate.getX()].isPossibleDisplace = true;
                         await Clients.Caller.SendAsync("OnBoard", board);
                     }
                     else
